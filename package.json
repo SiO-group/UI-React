@@ -1,0 +1,36 @@
+{
+  "name": "@sio-group/ui-react",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build:core": "npm run build --workspace=@sio-group/ui-core",
+    "build:modal": "npm run build --workspace=@sio-group/ui-modal",
+    "build": "npm run build:core && npm run build:modal",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "eslint \"packages/**/src/**/*.{ts,tsx}\" --ext .ts,.tsx",
+    "lint:fix": "eslint \"packages/**/*.{ts,tsx}\" --fix",
+    "typecheck": "tsc -b"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.30.0",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.57.0",
+    "@typescript-eslint/parser": "^8.57.0",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0",
+    "jsdom": "^29.0.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
+  }
+}

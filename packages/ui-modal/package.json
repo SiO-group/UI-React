@@ -1,0 +1,42 @@
+{
+  "name": "@sio-group/ui-modal",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/sio-modal-style.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./sio-modal-style.css": "./dist/styles/index.css"
+  },
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "sass src/assets/scss:dist/styles dist",
+    "build:js": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.json",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "dependencies": {
+    "@sio-group/ui-core": "0.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4",
+    "sass": "^1.97.3",
+    "typescript": "^5",
+    "vite": "^5"
+  }
+}

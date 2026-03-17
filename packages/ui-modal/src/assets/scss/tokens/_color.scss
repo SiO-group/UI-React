@@ -1,0 +1,26 @@
+$color-white: #ffffff;
+$color-black: #000000;
+$color-gray: #655f5d;
+$color-light-gray: #c6c6c6;
+
+$color-default: #3B82F6;
+$color-success: #10B981;
+$color-error: #EF4444;
+$color-warning: #F59E0B;
+$color-info: #06B6D4;
+
+:root {
+  --sio-color-white: #{$color-white};
+  --sio-color-black: #{$color-black};
+  --sio-color-gray: #{$color-gray};
+  --sio-color-light-gray: #{$color-light-gray};
+
+  --sio-color-primary: #{$color-default};
+  --sio-color-success: #{$color-success};
+  --sio-color-error: #{$color-error};
+  --sio-color-warning: #{$color-warning};
+  --sio-color-info: #{$color-info};
+
+  --sio-modal-backdrop: rgba(0,0,0,.75);
+  --sio-modal-border: var(--sio-color-primary);
+}

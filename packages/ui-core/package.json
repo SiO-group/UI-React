@@ -1,0 +1,39 @@
+{
+  "name": "@sio-group/ui-core",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/sio-core-style.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./sio-core-style.css": "./dist/styles/index.css",
+    "./sio-button.css": "./dist/styles/components/button.css",
+    "./sio-link.css": "./dist/styles/components/link.css"
+  },
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "sass src/assets/scss:dist/styles dist",
+    "build:js": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4",
+    "sass": "^1.97.3",
+    "typescript": "^5",
+    "vite": "^5"
+  }
+}
