@@ -1,0 +1,222 @@
+# SiO UI React
+
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+![version](https://img.shields.io/badge/version-0.1.0-blue)
+[![Build Status](https://github.com/SiO-group/ui-react/actions/workflows/webpack.yml/badge.svg)](https://github.com/SiO-group/ui-react/actions/workflows/webpack.yml)
+![TypeScript](https://img.shields.io/badge/types-Yes-brightgreen)
+
+[![GitHub stars](https://img.shields.io/github/stars/SiO-group/ui-react?style=social)](https://github.com/SiO-group/ui-react/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/SiO-group/ui-react?style=social)](https://github.com/SiO-group/ui-react/forks)
+![GitHub last commit](https://img.shields.io/github/last-commit/SiO-group/ui-react)
+
+A lightweight, accessible set of UI components for React applications. Build consistent interfaces with our modular architecture that separates core primitives from specialized components.
+
+## Why SiO UI?
+
+Most UI libraries are monolithic. SiO UI takes a different approach by providing **modular packages** that work together seamlessly but can also be used independently:
+
+- **Start small** with our core primitives
+- **Add complexity** when you need it
+- **Stay lightweight** by importing only what you use
+
+This separation gives you the flexibility to:
+- Use the same core components across different projects
+- Extend with specialized components without bloat
+- Maintain consistent styling and behavior
+
+## Packages
+
+| Package                                                | Version                                                       | Description                                            | Documentation                                  |
+|--------------------------------------------------------|---------------------------------------------------------------|--------------------------------------------------------|------------------------------------------------|
+| [**@sio-group/ui-core**](./packages/ui-core)           | ![version](https://img.shields.io/npm/v/@sio-group/ui-core)   | Foundational UI primitives (Button, Link)              | [README](./packages/ui-core/README.md)         |
+| [**@sio-group/ui-modal**](./packages/ui-modal)         | ![version](https://img.shields.io/npm/v/@sio-group/ui-modal)  | Flexible and accessible modal component                | [README](./packages/ui-modal/README.md)        |
+
+## Quick Start
+
+Choose your entry point based on your needs:
+
+### 🚀 I want a complete UI solution
+
+```bash
+npm install @sio-group/ui-core @sio-group/ui-modal
+```
+
+```tsx
+import { Button } from '@sio-group/ui-core';
+import { Modal } from '@sio-group/ui-modal';
+import { useState } from 'react';
+
+function App() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>
+        Open Modal
+      </Button>
+
+      <Modal show={open} close={() => setOpen(false)} title="Welcome">
+        <p>This is a complete UI solution with core primitives and modal!</p>
+      </Modal>
+    </>
+  );
+}
+```
+
+### 🔧 I only need core primitives
+
+```bash
+npm install @sio-group/ui-core
+```
+
+```tsx
+import { Button, Link } from '@sio-group/ui-core';
+
+function MyComponent() {
+  return (
+    <div>
+      <Button variant="primary" onClick={handleClick}>
+        Click me
+      </Button>
+      <Link to="/dashboard" external={false}>
+        Go to Dashboard
+      </Link>
+    </div>
+  );
+}
+```
+
+### 🎯 I need advanced components
+
+```bash
+npm install @sio-group/ui-modal
+```
+
+```tsx
+import { Modal } from '@sio-group/ui-modal';
+import { Button } from '@sio-group/ui-core'; // Optional, can use your own buttons
+
+function MyModal() {
+  return (
+    <Modal show={isOpen} close={onClose} size="lg">
+      <Modal.Header showClose close={onClose}>
+        <h2>Custom Header</h2>
+      </Modal.Header>
+      <Modal.Body>
+        Your content here
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button variant="primary" onClick={onSave}>Save</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+```
+
+## Architecture
+
+```
+┌─────────────────┐
+│    ui-core      │
+│  (primitives)   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────┐
+│    ui-modal     │
+│  (composite)    │
+└─────────────────┘
+```
+
+### Package Relationships
+
+- **@sio-group/ui-core**: No internal dependencies, foundational components
+- **@sio-group/ui-modal**: Depends on `ui-core` for buttons and links
+
+## Key Features
+
+- Modular architecture (primitives + composites)
+- Full TypeScript support
+- Accessible by design (ARIA, keyboard navigation)
+- Two APIs per component (props-based and composition)
+- Tree-shakable packages
+- Minimal dependencies
+
+## Styling
+
+Each package includes its own CSS:
+
+```js
+// Import only what you need
+import "@sio-group/ui-core/sio-core-style.css";
+import "@sio-group/ui-core/sio-button.css";
+import "@sio-group/ui-modal/sio-modal-style.css";
+```
+
+## Development
+
+```bash
+# Clone the repository
+git clone https://github.com/sio-group/ui-react
+cd ui-react
+
+# Install dependencies
+npm install
+
+# Build all packages
+npm run build
+
+# Run tests for all packages
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Lint all packages
+npm run lint
+
+# Type-check all packages
+npm run typecheck
+
+# Start demo application
+npm run demo
+```
+
+### Workspace Structure
+
+```
+ui-react/
+├── packages/
+│   ├── ui-core/         # Core UI primitives
+│   ├── ui-modal/        # Modal component
+│   └── demo/            # Example application
+└── package.json         # Workspace root
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
+
+- Setting up the development environment
+- Coding standards
+- Pull request process
+- Release process
+
+### Development Workflow
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests (`npm test`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+## License
+
+This project is licensed under the ISC License - see the [LICENSE](./LICENSE) file for details.
+
+---
+
+Made with ❤️ by the SiO Solutions Team
