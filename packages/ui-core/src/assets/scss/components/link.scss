@@ -21,6 +21,12 @@
   text-decoration: underline;
 }
 
+:where(.link--default) {
+  --sio-btn-bg: transparent;
+  --sio-btn-border: transparent;
+  --sio-btn-text: var(--sio-btn-text, var(--sio-btn-text));
+}
+
 :where(.link:hover),
 :where(.link:active),
 :where(.link:focus),
