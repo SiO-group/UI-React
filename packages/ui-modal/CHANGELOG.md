@@ -1,5 +1,24 @@
 # @sio-group/ui-modal
 
+## 0.2.1
+
+### Patch Changes
+
+- minor patches
+- Updated dependencies
+  - @sio-group/ui-core@0.2.1
+
+## 0.2.0
+
+### Minor Changes
+
+- bugfixes
+
+### Patch Changes
+
+- Updated dependencies
+  - @sio-group/ui-core@0.2.0
+
 ## 0.1.2
 
 ### Patch Changes
