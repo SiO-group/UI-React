@@ -26,10 +26,11 @@ This separation gives you the flexibility to:
 
 ## Packages
 
-| Package                                                | Version                                                       | Description                                            | Documentation                                  |
-|--------------------------------------------------------|---------------------------------------------------------------|--------------------------------------------------------|------------------------------------------------|
-| [**@sio-group/ui-core**](./packages/ui-core)           | ![version](https://img.shields.io/npm/v/@sio-group/ui-core)   | Foundational UI primitives (Button, Link)              | [README](./packages/ui-core/README.md)         |
-| [**@sio-group/ui-modal**](./packages/ui-modal)         | ![version](https://img.shields.io/npm/v/@sio-group/ui-modal)  | Flexible and accessible modal component                | [README](./packages/ui-modal/README.md)        |
+| Package                                        | Version                                                      | Description                               | Documentation                           |
+|------------------------------------------------|--------------------------------------------------------------|-------------------------------------------|-----------------------------------------|
+| [**@sio-group/ui-core**](./packages/ui-core)   | ![version](https://img.shields.io/npm/v/@sio-group/ui-core)  | Foundational UI primitives (Button, Link) | [README](./packages/ui-core/README.md)  |
+| [**@sio-group/ui-modal**](./packages/ui-modal) | ![version](https://img.shields.io/npm/v/@sio-group/ui-modal) | Flexible and accessible modal component   | [README](./packages/ui-modal/README.md) |
+| [**@sio-group/ui-card**](./packages/ui-card)   | [version](https://img.shields.io/npm/v/@sio-group/ui-card)   | Flexible and accessible card component    | [README](./packages/ui-card/README.md)  |
 
 ## Quick Start
 
@@ -38,12 +39,13 @@ Choose your entry point based on your needs:
 ### 🚀 I want a complete UI solution
 
 ```bash
-npm install @sio-group/ui-core @sio-group/ui-modal
+npm install @sio-group/ui-core @sio-group/ui-modal @sio-group/ui-card
 ```
 
 ```tsx
 import { Button } from '@sio-group/ui-core';
 import { Modal } from '@sio-group/ui-modal';
+import { Card } from '@sio-group/ui-card';
 import { useState } from 'react';
 
 function App() {
@@ -54,6 +56,13 @@ function App() {
       <Button onClick={() => setOpen(true)}>
         Open Modal
       </Button>
+        
+      <Card
+        title="Demo Card"
+        addShadow
+      >
+        <p>This is awesome content</p>
+      </Card>
 
       <Modal show={open} close={() => setOpen(false)} title="Welcome">
         <p>This is a complete UI solution with core primitives and modal!</p>
@@ -117,22 +126,24 @@ function MyModal() {
 ## Architecture
 
 ```
-┌─────────────────┐
-│    ui-core      │
-│  (primitives)   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│    ui-modal     │
-│  (composite)    │
-└─────────────────┘
+           ┌─────────────────┐
+           │    ui-core      │
+           │  (primitives)   │
+           └────────┬────────┘
+                    │
+         ┌──────────┴──────────┐
+         ▼                     ▼
+┌─────────────────┐   ┌─────────────────┐
+│    ui-modal     │   │    ui-card      │
+│  (composite)    │   │  (composite)    │
+└─────────────────┘   └─────────────────┘
 ```
 
 ### Package Relationships
 
 - **@sio-group/ui-core**: No internal dependencies, foundational components
 - **@sio-group/ui-modal**: Depends on `ui-core` for buttons and links
+- **@sio-group/ui-card**: Depends on `ui-core` for buttons and links
 
 ## Key Features
 
@@ -151,7 +162,9 @@ Each package includes its own CSS:
 // Import only what you need
 import "@sio-group/ui-core/sio-core-style.css";
 import "@sio-group/ui-core/sio-button.css";
+import "@sio-group/ui-core/sio-link.css";
 import "@sio-group/ui-modal/sio-modal-style.css";
+import "@sio-group/ui-modal/sio-card-style.css";
 ```
 
 ## Development
@@ -190,6 +203,7 @@ ui-react/
 ├── packages/
 │   ├── ui-core/         # Core UI primitives
 │   ├── ui-modal/        # Modal component
+│   ├── ui-card/         # Card component
 │   └── demo/            # Example application
 └── package.json         # Workspace root
 ```
