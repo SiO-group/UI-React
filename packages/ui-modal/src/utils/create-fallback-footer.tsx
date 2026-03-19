@@ -18,11 +18,13 @@ export const createFallbackFooter = ({actions, showClose = true, close}: Fallbac
         <ModalFooter>
             {(showClose || actions?.length) && (
                 <div className="btn-group">
-                    <Button
-                        variant="secondary"
-                        color="default"
-                        onClick={() => close?.()}
-                    >Annuleren</Button>
+                    {showClose && (
+                        <Button
+                            variant="secondary"
+                            color="default"
+                            onClick={() => close?.()}
+                        >Annuleren</Button>
+                    )}
 
                     {actions?.map((action: ButtonProps | LinkProps, i: number) => renderButton(action, i))}
                 </div>
