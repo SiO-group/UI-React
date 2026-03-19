@@ -2,6 +2,8 @@
   "files": [],
   "references": [
     { "path": "./packages/ui-core"},
-    { "path": "./packages/ui-modal"}
+    { "path": "./packages/ui-card"},
+    { "path": "./packages/ui-modal"},
+    { "path": "./packages/demo"},
   ]
 }
