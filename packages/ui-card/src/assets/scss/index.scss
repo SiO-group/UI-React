@@ -16,7 +16,7 @@
 
   &__header {
     position: relative;
-    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+    padding: var(--sio-card-padding-y) var(--sio-card-padding-x);
     border-bottom: 1px solid var(--sio-card-border);
 
     h2 {
@@ -35,11 +35,11 @@
   }
 
   &__body {
-    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+    padding: var(--sio-card-padding-y) var(--sio-card-padding-x);
   }
 
   &__footer {
-    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+    padding: var(--sio-card-padding-y) var(--sio-card-padding-x);
     border-top: 1px solid var(--sio-card-border);
   }
 }

@@ -24,7 +24,7 @@
 :where(.link--default) {
   background: transparent;
   border-color: transparent;
-  color: var(--sio-btn-text, var(--sio-btn-text));
+  color: var(--sio-btn-link-text, var(--sio-btn-text));
 }
 
 :where(.link:hover),
