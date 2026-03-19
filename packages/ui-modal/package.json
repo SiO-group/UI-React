@@ -1,6 +1,6 @@
 {
   "name": "@sio-group/ui-modal",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -31,7 +31,7 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@sio-group/ui-core": "0.2.2"
+    "@sio-group/ui-core": "0.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",

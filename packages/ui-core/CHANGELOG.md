@@ -1,5 +1,11 @@
 # @sio-group/ui-core
 
+## 0.3.0
+
+### Minor Changes
+
+- Add Card component and minor bugfixes
+
 ## 0.2.2
 
 ### Patch Changes
