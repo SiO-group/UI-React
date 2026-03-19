@@ -27,8 +27,8 @@
   "license": "ISC",
   "description": "",
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "dependencies": {
     "@sio-group/ui-core": "0.2.2"
