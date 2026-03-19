@@ -1,0 +1,45 @@
+@forward "tokens/color";
+@forward "tokens/card";
+
+.card {
+  background: var(--sio-color-white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  border-radius: var(--sio-card-border-radius);
+  border: 1px solid var(--sio-card-border);
+
+  &--shadow {
+    box-shadow: var(--sio-card-shadow) var(--sio-card-shadow-color);
+  }
+
+  &__header {
+    position: relative;
+    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+    border-bottom: 1px solid var(--sio-card-border);
+
+    h2 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--sio-color-black);
+    }
+
+    h3 {
+      margin: 2.5px 0 0;
+      font-size: 1.1em;
+      font-weight: 400;
+      color: var(--sio-color-black);
+    }
+  }
+
+  &__body {
+    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+  }
+
+  &__footer {
+    padding: var(--sio-form-padding-y) var(--sio-form-padding-x);
+    border-top: 1px solid var(--sio-card-border);
+  }
+}
