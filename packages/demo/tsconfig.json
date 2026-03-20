@@ -10,6 +10,7 @@
   "references": [
     { "path": "../ui-card" },
     { "path": "../ui-modal" },
+    { "path": "../ui-pagination" },
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ]

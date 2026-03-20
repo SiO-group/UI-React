@@ -1,0 +1,83 @@
+@forward "tokens/color";
+@forward "tokens/pagination";
+
+
+/*.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--dt-text-muted);
+}
+.pagination__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.pagination__page {
+  min-width: 4rem;
+  text-align: center;
+  color: var(--dt-text);
+}*/
+
+.pagination {
+  display: flex;
+  align-items: center;
+  font-size: .8em;
+  margin: 3rem 0;
+  gap: 15px;
+
+  &__elipsis {
+    padding: 2.5px 5px;
+    min-height: 23px;
+    color: var(--sio-color-gray);
+    cursor: not-allowed;
+  }
+
+  /*&__pages {
+    list-style: none;
+    margin: .5rem 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      margin: 0 .3rem;
+      padding: 0;
+
+      a {
+        padding: 0 .3rem;
+        text-decoration: none;
+      }
+
+      &.break {
+        padding: 0;
+        letter-spacing: 0.25em;
+      }
+
+      &.selected {
+        font-weight: bold;
+
+        a {
+          @include themed($themes) {
+            color: t("button-background-hover");
+          }
+        }
+      }
+
+      &.disabled {
+        a {
+          cursor: not-allowed;
+
+          @include themed($themes) {
+            color: t("button-background-disabled")
+          }
+        }
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }*/
+}
