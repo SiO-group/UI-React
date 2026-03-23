@@ -61,7 +61,7 @@ export const Pagination = ({
                     ariaLabel="Volgende pagina"
                     variant="link"
                 >
-                    &#707; volgende
+                    volgende &#707;
                 </Button>
             </div>
         </div>
