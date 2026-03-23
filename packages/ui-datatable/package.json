@@ -1,19 +1,19 @@
 {
-  "name": "@sio-group/ui-data-table",
-  "version": "0.3.2",
+  "name": "@sio-group/ui-datatable",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "style": "./dist/sio-data-table-style.css",
+  "style": "./dist/sio-datatable-style.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./sio-data-table-style.css": "./dist/styles/index.css"
+    "./sio-datatable-style.css": "./dist/styles/index.css"
   },
   "scripts": {
     "build": "npm run build:js && npm run build:css",
@@ -31,7 +31,9 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@sio-group/ui-core": "0.3.1"
+    "@sio-group/ui-core": "0.3.1",
+    "@sio-group/ui-pagination": "0.1.0",
+    "@sio-group/ui-modal": "0.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",

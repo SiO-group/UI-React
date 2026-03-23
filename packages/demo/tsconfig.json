@@ -11,6 +11,7 @@
     { "path": "../ui-card" },
     { "path": "../ui-modal" },
     { "path": "../ui-pagination" },
+    { "path": "../ui-datatable" },
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ]

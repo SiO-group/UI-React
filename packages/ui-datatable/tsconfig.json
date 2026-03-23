@@ -10,6 +10,8 @@
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["dist", "node_modules"],
   "references": [
-    { "path": "../ui-core" }
+    { "path": "../ui-core" },
+    { "path": "../ui-pagination" },
+    { "path": "../ui-modal" },
   ]
 }

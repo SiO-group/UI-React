@@ -3,7 +3,7 @@
   "references": [
     { "path": "./packages/ui-core"},
     { "path": "./packages/ui-card"},
-    { "path": "./packages/ui-data-table"},
+    { "path": "./packages/ui-datatable"},
     { "path": "./packages/ui-pagination"},
     { "path": "./packages/ui-modal"},
     { "path": "./packages/demo"},

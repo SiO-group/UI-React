@@ -1,0 +1,19 @@
+:root {
+  --sio-color-white: #ffffff;
+  --sio-color-black: #000000;
+  --sio-color-gray: #655f5d;
+  --sio-color-light-gray: #c6c6c6;
+
+  --sio-color-primary: #3B82F6;
+  --sio-color-success: #10B981;
+  --sio-color-error: #EF4444;
+  --sio-color-warning: #F59E0B;
+  --sio-color-info: #06B6D4;
+
+  --sio-datatable-border: var(--sio-color-light-gray);
+  --sio-datatable-striped: #f9fafb;
+  --sio-datatable-hover: #f1f5f9;
+
+  --sio-form-border: var(--sio-color-light-gray);
+  --sio-form-bg: var(--sio-color-white);
+}
