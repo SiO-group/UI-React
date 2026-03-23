@@ -8,6 +8,7 @@ export const BooleanCell = <T extends { id: string | number }> ({
     updateData,
 }: BooleanCellProps<T>) => (
     <Button
+        className="boolean"
         color={value ? "success" : "error"}
         variant={column.format === "button" ? "primary" : "link"}
         onClick={() =>

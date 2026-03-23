@@ -18,9 +18,7 @@
   "scripts": {
     "build": "npm run build:js && npm run build:css",
     "build:css": "sass src/assets/scss:dist/styles dist",
-    "build:js": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.json",
-    "test": "vitest",
-    "test:ui": "vitest --ui"
+    "build:js": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.json"
   },
   "keywords": [],
   "author": "",
