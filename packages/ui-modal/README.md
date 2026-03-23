@@ -19,6 +19,7 @@ The modal supports both simple configuration through props and full layout contr
 * 🎨 **Custom styling** – Supports custom classes and inline styles
 * 📦 **Lightweight** – Minimal dependencies
 * 📱 **Responsive** – Multiple predefined modal sizes
+* ✅ **Confirmation dialog** – Built-in opinionated confirmation pattern
 
 ---
 
@@ -283,7 +284,7 @@ When using `@sio-group/form-react` inside a `Modal`, the form is rendered as par
 
 By default:
 
-- the entire form (fields and buttons) is rendered inside the modal body 
+- the entire form (fields and buttons) is rendered inside the modal body
 - the modal will still render its default footer
 
 To integrate the form with the modal layout, you can map the form containers to the modal subcomponents:
@@ -352,6 +353,99 @@ const element = document.getElementById("custom-root");
 
 ---
 
+## Confirmation
+
+The `Confirmation` component is an opinionated wrapper around `Modal`, designed for delete confirmations and other destructive or irreversible actions.
+
+It fixes several modal behaviours that are undesirable in a confirmation context: the backdrop and ESC key cannot close it, and there is no close button — the user must explicitly confirm or cancel.
+
+### Quick Example
+
+```tsx
+import { Confirmation } from "@sio-group/ui-modal";
+import { useState } from "react";
+
+function Example() {
+    const [show, setShow] = useState(false);
+
+    return (
+        <>
+            <button onClick={() => setShow(true)}>Verwijderen</button>
+
+            <Confirmation
+                show={show}
+                title="Weet je het zeker?"
+                body="Deze actie kan niet ongedaan worden gemaakt."
+                onConfirm={() => {
+                    deleteItem();
+                    setShow(false);
+                }}
+                onCancel={() => setShow(false)}
+            />
+        </>
+    );
+}
+```
+
+![Confirmation dialog](screenshots/confirmation.png)
+
+---
+
+### Usage
+
+The `Confirmation` component is a **controlled component** — you manage the `show` state yourself.
+
+It always renders two action buttons: a cancel and a confirm button. The labels and colors of both buttons are configurable.
+
+```tsx
+<Confirmation
+    show={showConfirm}
+    title="Gebruiker verwijderen"
+    subtitle="Dit kan niet ongedaan worden gemaakt."
+    body={<p>Weet je zeker dat je <strong>{user.name}</strong> wil verwijderen?</p>}
+    confirmLabel="Verwijderen"
+    cancelLabel="Annuleren"
+    confirmColor="error"
+    cancelColor="default"
+    onConfirm={handleDelete}
+    onCancel={() => setShowConfirm(false)}
+/>
+```
+
+---
+
+### Differences from Modal
+
+| Behaviour         | Modal  | Confirmation            |
+|-------------------|--------|-------------------------|
+| `closeOnEsc`      | `true` | `false`                 |
+| `closeOnBackdrop` | `true` | `false`                 |
+| `showClose`       | `true` | `false`                 |
+| `size`            | `'md'` | `'sm'`                  |
+| Actions           | Free   | Always cancel + confirm |
+
+---
+
+### API Reference
+
+#### Confirmation Props
+
+| Prop           | Type                                | Default         | Description                                         |
+|----------------|-------------------------------------|-----------------|-----------------------------------------------------|
+| `show`         | `boolean`                           | —               | Controls whether the confirmation dialog is visible |
+| `title`        | `string`                            | —               | Title of the confirmation dialog                    |
+| `subtitle`     | `string`                            | —               | Optional subtitle for extra context                 |
+| `body`         | `ReactNode`                         | —               | Content shown between the header and action buttons |
+| `onConfirm`    | `() => void`                        | —               | Called when the user clicks the confirm button      |
+| `onCancel`     | `() => void`                        | —               | Called when the user clicks the cancel button       |
+| `confirmLabel` | `string`                            | `'Bevestig'`    | Label for the confirm button                        |
+| `cancelLabel`  | `string`                            | `'Annuleer'`    | Label for the cancel button                         |
+| `confirmColor` | `'success' \| 'error' \| 'default'` | `'success'`     | Color variant for the confirm button                |
+| `cancelColor`  | `'success' \| 'error' \| 'default'` | `'error'`       | Color variant for the cancel button                 |
+| `portalTarget` | `string \| Element`                 | `'#modal-root'` | Portal target — same behaviour as Modal             |
+
+---
+
 ## Accessibility
 
 The modal includes basic accessibility support:
@@ -371,7 +465,7 @@ The modal includes basic accessibility support:
 This package includes full TypeScript definitions.
 
 ```ts
-import { Modal, ModalProps } from "@sio-group/ui-modal";
+import { Modal, ModalProps, Confirmation, ConfirmationProps } from "@sio-group/ui-modal";
 ```
 
 ---

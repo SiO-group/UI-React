@@ -1,6 +1,8 @@
 import {CSSProperties, ReactNode} from "react";
 import type {LinkProps, ButtonProps} from "@sio-group/ui-core";
 
+export type Color = 'default' | 'error' | 'success' | 'warning';
+
 export interface ModalProps {
     show: boolean,
     close: () => void,
@@ -15,6 +17,20 @@ export interface ModalProps {
     closeOnBackdrop?: boolean,
     actions?: (ButtonProps | LinkProps)[],
     size?: 'sm' | 'md' | 'lg',
+}
+
+export interface ConfirmationProps {
+    show: boolean,
+    onCancel,
+    onConfirm,
+    portalTarget?: string | HTMLElement,
+    title?: string,
+    subtitle?: string,
+    body?: ReactNode,
+    confirmLabel?: string,
+    cancelLabel?: string,
+    confirmColor?: Color,
+    cancelColor?: Color,
 }
 
 export interface HeaderProps {

@@ -86,6 +86,17 @@
   }
 }
 
+.confirmation {
+  .btn-group {
+    width: 100%;
+    gap: 2px;
+
+    .btn {
+      width: calc(50% - 1px);
+    }
+  }
+}
+
 @keyframes modal-in {
   from {
     opacity: 0;
