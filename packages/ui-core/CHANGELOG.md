@@ -1,5 +1,11 @@
 # @sio-group/ui-core
 
+## 0.4.0
+
+### Minor Changes
+
+- 430252c: Feat: add Pill
+
 ## 0.3.1
 
 ### Patch Changes

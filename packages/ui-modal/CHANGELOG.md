@@ -1,5 +1,16 @@
 # @sio-group/ui-modal
 
+## 0.4.0
+
+### Minor Changes
+
+- a7139b5: Feat: add Confirmation
+
+### Patch Changes
+
+- Updated dependencies [430252c]
+  - @sio-group/ui-core@0.4.0
+
 ## 0.3.2
 
 ### Patch Changes
