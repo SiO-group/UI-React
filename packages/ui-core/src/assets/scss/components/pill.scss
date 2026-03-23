@@ -1,0 +1,27 @@
+@use "../utilities/mixins" as *;
+@use "../tokens/colors" as *;
+
+.pill {
+  --sio-pill-text: var(--sio-color-white);
+  --sio-pill-bg: var(--sio-color-primary);
+
+  color: var(--sio-pill-text);
+  background: var(--sio-pill-bg);
+
+  width: 100%;
+  text-align: center;
+  padding: 2px 10px;
+  font-size: .9em;
+  border-radius: 8px;
+}
+
+@each $name, $color in $colors {
+  .pill--#{$name} {
+    --sio-pill-bg: var(--sio-color-#{$name});
+    @if $name == 'caution' {
+      --sio-pill-text: var(--sio-color-black)
+    } @else {
+      --sio-pill-text: var(--sio-color-white)
+    };
+  }
+}

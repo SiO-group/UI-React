@@ -54,6 +54,7 @@ import "@sio-group/ui-core/sio-core-style.css";
 // Styling per component
 import "@sio-group/ui-core/sio-button.css";
 import "@sio-group/ui-core/sio-link.css";
+import "@sio-group/ui-core/sio-pill.css";
 ```
 
 ### Core styles
@@ -68,12 +69,36 @@ import "@sio-group/ui-core/sio-link.css";
 
 Each component has its own stylesheet.
 
-| File              | Description     |
-|-------------------|-----------------|
-| `sio-button.css`  | Button styling  |
-| `sio-link.css`    | Link styling    |
+| File             | Description    |
+|------------------|----------------|
+| `sio-button.css` | Button styling |
+| `sio-link.css`   | Link styling   |
+| `sio-pill.css`   | Pill styling   |
 
 This allows projects to import only the styles they need.
+
+---
+
+## Color
+
+The `Color` type is shared across all components that support color theming.
+
+```ts
+import { Color } from "@sio-group/ui-core";
+
+type Color = 'default' | 'error' | 'success' | 'warning' | 'caution' | 'info';
+```
+
+| Value     | Intent                              |
+|-----------|-------------------------------------|
+| `default` | Neutral, no semantic meaning        |
+| `error`   | Destructive or failed state         |
+| `success` | Positive or completed state         |
+| `warning` | Potentially problematic state       |
+| `caution` | Requires attention, less severe     |
+| `info`    | Informational, no action required   |
+
+The `color` prop on `Button`, `Link` and `Pill` all use this type.
 
 ---
 
@@ -83,6 +108,7 @@ This package currently includes:
 
 * **Button**
 * **Link**
+* **Pill**
 
 ---
 
@@ -144,8 +170,9 @@ The button automatically becomes disabled while loading.
 ```tsx
 <Button color="default">Default</Button>
 <Button color="error">Delete</Button>
-<Button color="success">Success</Button>
+<Button color="success">Confirm</Button>
 <Button color="warning">Warning</Button>
+<Button color="caution">Caution</Button>
 <Button color="info">Info</Button>
 ```
 
@@ -173,20 +200,20 @@ The button automatically becomes disabled while loading.
 
 ### Button API
 
-| Prop        | Type                                                       | Default     | Description                               |
-|-------------|------------------------------------------------------------|-------------|-------------------------------------------|
-| `type`      | `"button" \| "submit" \| "reset"`                          | `"button"`  | Button type                               |
-| `onClick`   | `(event) => void`                                          | —           | Click handler                             |
-| `variant`   | `"primary" \| "secondary" \| "link"`                       | `"primary"` | Visual variant                            |
-| `color`     | `"default" \| "error" \| "success" \| "warning" \| "info"` | `"default"` | Color theme                               |
-| `size`      | `"sm" \| "md" \| "lg"`                                     | `"md"`      | Button size                               |
-| `block`     | `boolean`                                                  | `false`     | Full width button                         |
-| `loading`   | `boolean`                                                  | `false`     | Displays spinner and disables interaction |
-| `disabled`  | `boolean`                                                  | `false`     | Disables the button                       |
-| `className` | `string`                                                   | —           | Additional CSS classes                    |
-| `ariaLabel` | `string`                                                   | —           | Accessibility label                       |
-| `style`     | `React.CSSProperties`                                      | —           | Inline styles                             |
-| `children`  | `ReactNode`                                                | —           | Button content                            |
+| Prop        | Type                                                                  | Default     | Description                               |
+|-------------|-----------------------------------------------------------------------|-------------|-------------------------------------------|
+| `type`      | `"button" \| "submit" \| "reset"`                                     | `"button"`  | Button type                               |
+| `onClick`   | `(event) => void`                                                     | —           | Click handler                             |
+| `variant`   | `"primary" \| "secondary" \| "link"`                                  | `"primary"` | Visual variant                            |
+| `color`     | `Color`                                                               | `"default"` | Color theme                               |
+| `size`      | `"sm" \| "md" \| "lg"`                                                | `"md"`      | Button size                               |
+| `block`     | `boolean`                                                             | `false`     | Full width button                         |
+| `loading`   | `boolean`                                                             | `false`     | Displays spinner and disables interaction |
+| `disabled`  | `boolean`                                                             | `false`     | Disables the button                       |
+| `className` | `string`                                                              | —           | Additional CSS classes                    |
+| `ariaLabel` | `string`                                                              | —           | Accessibility label                       |
+| `style`     | `React.CSSProperties`                                                 | —           | Inline styles                             |
+| `children`  | `ReactNode`                                                           | —           | Button content                            |
 
 ---
 
@@ -267,21 +294,59 @@ Use a custom navigation function when integrating with a router.
 
 ### Link API
 
-| Prop        | Type                                                       | Default     | Description                    |
-|-------------|------------------------------------------------------------|-------------|--------------------------------|
-| `to`        | `string`                                                   | —           | Target URL                     |
-| `navigate`  | `(to: string) => void`                                     | —           | Optional navigation function   |
-| `external`  | `boolean`                                                  | `false`     | Forces external link behaviour |
-| `onClick`   | `(event) => void`                                          | —           | Click handler                  |
-| `color`     | `"default" \| "error" \| "success" \| "warning" \| "info"` | `"default"` | Color theme                    |
-| `size`      | `"sm" \| "md" \| "lg"`                                     | `"md"`      | Link size                      |
-| `block`     | `boolean`                                                  | `false`     | Full width link                |
-| `loading`   | `boolean`                                                  | `false`     | Displays spinner               |
-| `disabled`  | `boolean`                                                  | `false`     | Disables the link              |
-| `className` | `string`                                                   | —           | Additional CSS classes         |
-| `ariaLabel` | `string`                                                   | —           | Accessibility label            |
-| `style`     | `React.CSSProperties`                                      | —           | Inline styles                  |
-| `children`  | `ReactNode`                                                | —           | Link content                   |
+| Prop        | Type                   | Default     | Description                    |
+|-------------|------------------------|-------------|--------------------------------|
+| `to`        | `string`               | —           | Target URL                     |
+| `navigate`  | `(to: string) => void` | —           | Optional navigation function   |
+| `external`  | `boolean`              | `false`     | Forces external link behaviour |
+| `onClick`   | `(event) => void`      | —           | Click handler                  |
+| `color`     | `Color`                | `"default"` | Color theme                    |
+| `size`      | `"sm" \| "md" \| "lg"` | `"md"`      | Link size                      |
+| `block`     | `boolean`              | `false`     | Full width link                |
+| `loading`   | `boolean`              | `false`     | Displays spinner               |
+| `disabled`  | `boolean`              | `false`     | Disables the link              |
+| `className` | `string`               | —           | Additional CSS classes         |
+| `ariaLabel` | `string`               | —           | Accessibility label            |
+| `style`     | `React.CSSProperties`  | —           | Inline styles                  |
+| `children`  | `ReactNode`            | —           | Link content                   |
+
+---
+
+## Pill
+
+A compact status indicator for displaying the state or category of an item.
+
+### Example
+
+```tsx
+import { Pill } from "@sio-group/ui-core";
+
+function Example() {
+  return <Pill status="success" label="Actief" />;
+}
+```
+
+---
+
+### Pill colors
+
+```tsx
+<Pill status="default" label="Onbekend" />
+<Pill status="success" label="Actief" />
+<Pill status="error"   label="Geblokkeerd" />
+<Pill status="warning" label="Vervallen" />
+<Pill status="caution" label="In behandeling" />
+<Pill status="info"    label="Concept" />
+```
+
+---
+
+### Pill API
+
+| Prop     | Type     | Default | Description                    |
+|----------|----------|---------|--------------------------------|
+| `status` | `Color`  | —       | Color variant of the pill      |
+| `label`  | `string` | —       | Text displayed inside the pill |
 
 ---
 
@@ -301,7 +366,8 @@ The components include basic accessibility support:
 This package includes full TypeScript definitions.
 
 ```ts
-import { Button, Link } from "@sio-group/ui-core";
+import { Button, Link, Pill } from "@sio-group/ui-core";
+import type { Color } from "@sio-group/ui-core";
 ```
 
 ---
@@ -314,6 +380,7 @@ Supports all modern browsers that support:
 * React 19+
 
 ---
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](../../CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.

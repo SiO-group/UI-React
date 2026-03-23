@@ -2,7 +2,7 @@ import React from "react";
 
 export type ButtonType = 'button' | 'submit' | 'reset';
 export type Variant = 'primary' | 'secondary' | 'link';
-export type Color = 'default' | 'error' | 'success' | 'warning' | 'info';
+export type Color = 'default' | 'error' | 'success' | 'warning' | 'caution' | 'info';
 export type Size = 'sm' | 'md' | 'lg';
 
 export type BaseUiProps = {
