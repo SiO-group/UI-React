@@ -1,4 +1,4 @@
-import {Column, FormField} from "../types";
+import {FormField} from "../types";
 import {EmptyCell} from "../components/cell-types/EmptyCell";
 import {BooleanCell} from "../components/cell-types/BooleanCell";
 import {Link, Pill} from "@sio-group/ui-core";
@@ -6,14 +6,7 @@ import {renderObject} from "./render-object";
 import {DateCell} from "../components/cell-types/DateCell";
 import {isPillValue} from "./is-pill-value";
 import {InlineInputCell} from "../components/cell-types/InlineInputCell";
-
-interface RenderValueProps <T extends { id: string | number }> {
-    value: T[keyof T];
-    column: Column<T>;
-    item: T;
-    formFields?: FormField[];
-    updateData?: (id: (string | number), values: Partial<T>) => void;
-}
+import {RenderValueProps} from "../types/render-value-props";
 
 export const renderValue = <T extends { id: string | number }> ({value, column, item, formFields, updateData}: RenderValueProps<T>) => {
     const formatKey: string | undefined = typeof column.format === 'object' ? column.format.key : undefined;
@@ -22,7 +15,6 @@ export const renderValue = <T extends { id: string | number }> ({value, column, 
     if (formField) {
         return (
             <InlineInputCell
-                column={column}
                 value={value}
                 item={item}
                 formField={formField}
@@ -49,7 +41,7 @@ export const renderValue = <T extends { id: string | number }> ({value, column, 
         return (
             <DateCell
                 column={column}
-                value={value}
+                value={String(value)}
             />
         );
     }

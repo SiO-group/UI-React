@@ -1,17 +1,8 @@
-import {KeyboardEventHandler, useEffect, useState} from "react";
-import {Column, FormField} from "../../types";
+import {useEffect, useState} from "react";
 import {Button} from "@sio-group/ui-core";
-
-interface InlineInputCellProps<T extends { id: string | number }> {
-    column: Column<T>;
-    formField: FormField;
-    item: T;
-    value: T[keyof T];
-    updateData?: (id: string | number, values: Partial<T>) => void;
-}
+import {InlineInputCellProps} from "../../types/data-table-props";
 
 export const InlineInputCell = <T extends { id: string | number }>({
-    column,
     formField,
     item,
     value,

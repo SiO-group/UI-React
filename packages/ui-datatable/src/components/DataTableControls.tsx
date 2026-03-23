@@ -1,11 +1,5 @@
-import {Entity} from "../types";
 import {useState} from "react";
-
-interface DataTableControlsProps {
-    currentSearch?: string | null;
-    handleSearch: (query: string) => void;
-    entity?: Entity
-}
+import {DataTableControlsProps} from "../types/data-table-props";
 
 export const DataTableControls = ({
     currentSearch,

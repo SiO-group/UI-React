@@ -1,12 +1,5 @@
-import {Column} from "../../types";
 import {Button} from "@sio-group/ui-core";
-
-interface BooleanCellProps<T extends { id: number | string }> {
-    item: T;
-    column: Column<T>;
-    value: T[keyof T];
-    updateData?: (id: string | number, values: Partial<T>) => void;
-}
+import {BooleanCellProps} from "../../types/data-table-props";
 
 export const BooleanCell = <T extends { id: string | number }> ({
     column,

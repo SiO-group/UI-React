@@ -30,3 +30,23 @@ export interface DataTableProps<T extends { id: string | number }> {
     hover?: boolean,
     style?: CSSProperties,
 }
+
+export interface DataTableControlsProps {
+    currentSearch?: string | null;
+    handleSearch: (query: string) => void;
+    entity?: Entity
+}
+
+export interface BooleanCellProps<T extends { id: number | string }> {
+    item: T;
+    column: Column<T>;
+    value: T[keyof T];
+    updateData?: (id: string | number, values: Partial<T>) => void;
+}
+
+export interface InlineInputCellProps<T extends { id: string | number }> {
+    formField: FormField;
+    item: T;
+    value: T[keyof T];
+    updateData?: (id: string | number, values: Partial<T>) => void;
+}

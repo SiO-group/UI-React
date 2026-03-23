@@ -9,7 +9,10 @@
   "scripts": {
     "build:core": "npm run build --workspace=@sio-group/ui-core",
     "build:modal": "npm run build --workspace=@sio-group/ui-modal",
-    "build": "npm run build:core && npm run build:modal",
+    "build:card": "npm run build --workspace=@sio-group/ui-card",
+    "build:pagination": "npm run build --workspace=@sio-group/ui-pagination",
+    "build:datatable": "npm run build --workspace=@sio-group/ui-datatable",
+    "build": "npm run build:core && npm run build:modal && npm run build:card && npm run build:pagination && npm run build:datatable",
     "test": "npm run test --workspaces --if-present",
     "lint": "eslint \"packages/**/src/**/*.{ts,tsx}\" --ext .ts,.tsx",
     "lint:fix": "eslint \"packages/**/*.{ts,tsx}\" --fix",

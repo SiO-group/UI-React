@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React from "react";
 import {isComponentType} from "./component-type";
 import {MODAL_BODY, MODAL_FOOTER, MODAL_HEADER} from "../types";
 
