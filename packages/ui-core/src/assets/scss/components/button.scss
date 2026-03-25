@@ -134,8 +134,4 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-
-  .link:not(:first-child), .btn--link:not(:first-child) {
-    margin-left: 15px;
-  }
 }

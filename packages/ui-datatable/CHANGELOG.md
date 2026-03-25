@@ -1,5 +1,14 @@
 # @sio-group/ui-datatable
 
+## 0.1.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @sio-group/ui-core@0.4.3
+  - @sio-group/ui-modal@0.4.6
+  - @sio-group/ui-pagination@0.1.4
+
 ## 0.1.7
 
 ### Patch Changes

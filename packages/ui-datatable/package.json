@@ -1,6 +1,6 @@
 {
   "name": "@sio-group/ui-datatable",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -31,9 +31,9 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@sio-group/ui-core": "0.4.2",
-    "@sio-group/ui-pagination": "0.1.3",
-    "@sio-group/ui-modal": "0.4.5"
+    "@sio-group/ui-core": "0.4.3",
+    "@sio-group/ui-pagination": "0.1.4",
+    "@sio-group/ui-modal": "0.4.6"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",
