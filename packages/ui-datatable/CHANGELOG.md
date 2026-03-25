@@ -1,5 +1,12 @@
 # @sio-group/ui-datatable
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @sio-group/ui-modal@0.4.1
+
 ## 0.1.0
 
 ### Minor Changes

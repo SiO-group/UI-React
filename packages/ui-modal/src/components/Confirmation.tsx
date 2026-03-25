@@ -11,8 +11,8 @@ export const Confirmation = ({
     body,
     confirmLabel = 'Bevestig',
     cancelLabel = 'Annuleer',
-    confirmColor = 'success',
-    cancelColor = 'error',
+    confirmColor = 'error',
+    cancelColor = 'default',
 }: ConfirmationProps) => {
     return (
         <Modal

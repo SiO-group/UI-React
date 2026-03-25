@@ -1,5 +1,11 @@
 # @sio-group/ui-modal
 
+## 0.4.1
+
+### Patch Changes
+
+- Changed default button colors on Confirmation
+
 ## 0.4.0
 
 ### Minor Changes
