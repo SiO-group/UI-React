@@ -15,6 +15,8 @@ export type BaseUiProps = {
     disabled?: boolean;
     className?: string;
     ariaLabel?: string;
+    ariaExpanded?: boolean;
+    ariaHaspopup?: boolean | "true" | "false" | "menu" | "listbox" | "tree" | "grid" | "dialog";
     style?: React.CSSProperties;
     children?: React.ReactNode;
 };

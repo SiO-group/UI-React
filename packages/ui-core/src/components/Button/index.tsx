@@ -14,6 +14,8 @@ const ButtonComponent: React.FC<ButtonProps> = ({
     disabled = false,
     className,
     ariaLabel,
+    ariaExpanded,
+    ariaHaspopup,
     style,
     children,
 }: ButtonProps) => {
@@ -50,7 +52,10 @@ const ButtonComponent: React.FC<ButtonProps> = ({
             disabled={isDisabled}
             aria-label={ariaLabel}
             aria-busy={loading}
-            aria-disabled={isDisabled}>
+            aria-disabled={isDisabled}
+            aria-expanded={ariaExpanded}
+            aria-haspopup={ariaHaspopup}
+        >
             {loading
                 ? (
                     <>
