@@ -46,7 +46,7 @@
 }
 
 @each $name, $color in $colors {
-  :where(.link--#{$name}) {
+  .link--#{$name} {
     --sio-btn-bg: transparent;
     --sio-btn-border: transparent;
     --sio-btn-text: var(--sio-color-#{$name});

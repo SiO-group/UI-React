@@ -1,5 +1,11 @@
 # @sio-group/ui-core
 
+## 0.4.1
+
+### Patch Changes
+
+- Bug: fix wrong theme color in links
+
 ## 0.4.0
 
 ### Minor Changes

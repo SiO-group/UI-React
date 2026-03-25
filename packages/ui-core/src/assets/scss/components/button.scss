@@ -91,17 +91,17 @@
 }
 
 @each $name, $color in $colors {
-  :where(.btn--primary.btn--#{$name}) {
+  .btn--primary.btn--#{$name} {
     --sio-btn-bg: var(--sio-color-#{$name});
     --sio-btn-border: var(--sio-color-#{$name});
     --sio-btn-text: var(--sio-color-white);
   }
-  :where(.btn--secondary.btn--#{$name}) {
+  .btn--secondary.btn--#{$name} {
     --sio-btn-bg: transparent;
     --sio-btn-border: var(--sio-color-#{$name});
     --sio-btn-text: var(--sio-color-#{$name});
   }
-  :where(.btn--link.btn--#{$name}) {
+  .btn--link.btn--#{$name} {
     --sio-btn-bg: transparent;
     --sio-btn-border: transparent;
     --sio-btn-text: var(--sio-color-#{$name});

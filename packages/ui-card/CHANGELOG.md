@@ -1,5 +1,12 @@
 # @sio-group/ui-card
 
+## 0.3.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @sio-group/ui-core@0.4.1
+
 ## 0.3.2
 
 ### Patch Changes

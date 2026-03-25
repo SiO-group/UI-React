@@ -1,6 +1,6 @@
 {
   "name": "@sio-group/ui-pagination",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
@@ -29,7 +29,7 @@
     "react-dom": "^19"
   },
   "dependencies": {
-    "@sio-group/ui-core": "0.4.0"
+    "@sio-group/ui-core": "0.4.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",
