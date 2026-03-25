@@ -242,7 +242,7 @@ function App<T extends { id: string | number }>() {
                     clientSearchKeys={[ 'firstName', 'lastName', 'email' ]}
                     entity={{ name: 'users', label: 'Gebruikers'}}
                     actionMenu={{
-                        type: 'dropdown',
+                        type: 'inline',
                         actions: [
                             {name: 'action-1', label: 'Action 1', icon: '1', onClick: (temp) => console.log(`clicked 1 ${temp}`)},
                             {name: 'action-2', label: 'Action 2', icon: '2', onClick: (temp) => console.log(`clicked 2 ${temp}`)},

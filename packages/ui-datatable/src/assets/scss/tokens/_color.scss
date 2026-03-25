@@ -10,9 +10,13 @@
   --sio-color-warning: #F59E0B;
   --sio-color-info: #06B6D4;
 
+  --sio-datatable-bg: var(--sio-color-white);
   --sio-datatable-border: var(--sio-color-light-gray);
   --sio-datatable-striped: #f9fafb;
   --sio-datatable-hover: #f1f5f9;
+  --sio-datatable-shadow: 0 4px 8px 0;
+  --sio-datatable-shadow-color: rgba(0,0,0, .2);
+  --sio-datatable-border-radius: 3px;
 
   --sio-form-border: var(--sio-color-light-gray);
   --sio-form-bg: var(--sio-color-white);

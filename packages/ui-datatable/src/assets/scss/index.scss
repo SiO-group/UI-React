@@ -160,11 +160,41 @@
     margin: 25px;
   }
 
-  .action-cell {
-    .action-group {}
+  .action {
+    &-cel {}
 
-    .action-dropdown {
-      &__menu {}
+    &-group {
+      display: flex;
+      gap: 3px;
+    }
+
+    &-dropdown {
+      position: relative;
+      display: inline-block;
+
+      &__menu {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background: var(--sio-datatable-bg);
+        box-shadow: var(--sio-datatable-shadow) var(--sio-datatable-shadow-color);
+        border: 1px solid var(--sio-datatable-border);
+        border-radius: var(--sio-datatable-border-radius);
+        z-index: 1000;
+
+        .btn {
+          display: flex;
+          width: 100%;
+          min-width: 150px;
+          padding: 8px 16px;
+          border: none;
+          gap: 5px;
+
+          &:hover {
+            background-color: var(--sio-datatable-hover);
+          }
+        }
+      }
     }
   }
 }
