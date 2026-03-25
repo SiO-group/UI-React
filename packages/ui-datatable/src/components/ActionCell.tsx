@@ -15,15 +15,18 @@ export const ActionCell = <T extends { id: string | number }> ({
         if (dropdownRef.current && triggerRef.current) {
             const rect: DOMRect = triggerRef.current.getBoundingClientRect();
             dropdownRef.current.style.left = `${rect.left}px`;
-            dropdownRef.current.style.top = `${rect.top}px`;
+            dropdownRef.current.style.top = `${rect.bottom}px`;
         }
     }
 
     useEffect(() => {
         if (!isOpen) return;
 
+        positionDropdown();
+
         const handleOutside = (e: MouseEvent | Event) => {
             if (dropdownRef.current?.contains(e.target as Node)) return;
+            if (triggerRef.current?.contains(e.target as Node)) return;
             setIsOpen(false);
         }
 
@@ -65,10 +68,7 @@ export const ActionCell = <T extends { id: string | number }> ({
                         aria-label="Acties"
                         aria-expanded={isOpen}
                         aria-haspopup="menu"
-                        onClick={() => {
-                            setIsOpen(!isOpen);
-                            positionDropdown();
-                        }}
+                        onClick={() => setIsOpen(!isOpen)}
                     >
                         {renderMenuIcon ? renderMenuIcon() : '⋮'}
                     </button>

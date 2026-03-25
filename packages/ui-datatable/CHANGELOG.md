@@ -1,5 +1,11 @@
 # @sio-group/ui-datatable
 
+## 0.1.4
+
+### Patch Changes
+
+- Bug: Fix action cel behavior
+
 ## 0.1.3
 
 ### Patch Changes
