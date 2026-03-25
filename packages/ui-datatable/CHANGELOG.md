@@ -1,5 +1,11 @@
 # @sio-group/ui-datatable
 
+## 0.1.5
+
+### Patch Changes
+
+- Added inline input class
+
 ## 0.1.4
 
 ### Patch Changes

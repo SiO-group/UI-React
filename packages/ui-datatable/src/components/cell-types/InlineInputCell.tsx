@@ -42,7 +42,7 @@ export const InlineInputCell = <T extends { id: string | number }>({
     }, [setShowEdit]);
 
     return (
-        <>
+        <div className="inline-input">
             {showEdit ? (
                 <form noValidate>
                     {formField.type === "select" || formField.type === "radio" ? (
@@ -115,6 +115,6 @@ export const InlineInputCell = <T extends { id: string | number }>({
                     </Button>
                 </>
             )}
-        </>
+        </div>
     )
 }
