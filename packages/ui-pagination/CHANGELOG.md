@@ -1,5 +1,12 @@
 # @sio-group/ui-pagination
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @sio-group/ui-core@0.4.2
+
 ## 0.1.2
 
 ### Patch Changes

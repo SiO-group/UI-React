@@ -1,5 +1,11 @@
 # @sio-group/ui-core
 
+## 0.4.2
+
+### Patch Changes
+
+- Feat: add aria labels
+
 ## 0.4.1
 
 ### Patch Changes
