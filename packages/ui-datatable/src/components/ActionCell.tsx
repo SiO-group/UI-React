@@ -63,15 +63,16 @@ export const ActionCell = <T extends { id: string | number }> ({
                     className="action-dropdown"
                     ref={triggerRef}
                 >
-                    <button
-                        className="btn--link btn--default"
-                        aria-label="Acties"
-                        aria-expanded={isOpen}
-                        aria-haspopup="menu"
+                    <Button
+                        type="button"
+                        variant="link"
+                        ariaLabel="Acties"
+                        ariaExpanded={isOpen}
+                        ariaHaspopup="menu"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {renderMenuIcon ? renderMenuIcon() : '⋮'}
-                    </button>
+                    </Button>
                     {isOpen && (
                         <div
                             className="action-dropdown__menu"
