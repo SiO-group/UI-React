@@ -1,5 +1,11 @@
 # @sio-group/ui-datatable
 
+## 0.1.10
+
+### Patch Changes
+
+- Fix
+
 ## 0.1.9
 
 ### Patch Changes
