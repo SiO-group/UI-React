@@ -1,5 +1,11 @@
 # @sio-group/ui-datatable
 
+## 0.1.9
+
+### Patch Changes
+
+- Bug: Add default value for input
+
 ## 0.1.8
 
 ### Patch Changes

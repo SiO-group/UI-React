@@ -65,7 +65,7 @@ export const InlineInputCell = <T extends { id: string | number }>({
                             type="text"
                             id={formField.name}
                             name={formField.name}
-                            value={fieldValue as string}
+                            value={(fieldValue as string) ?? ''}
                             onChange={(e) => setFieldValue(e.target.value)}
                             autoFocus={true}
                         />
