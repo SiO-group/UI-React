@@ -9,8 +9,34 @@ export const isModalForm = (element: React.ReactElement): boolean => {
 
     const { container, buttonContainer } = element.props as any;
 
-    const usesModalBody: boolean = container === Modal.Body || (container?.type?.$$type === MODAL_BODY);
-    const usesModalFooter: boolean = buttonContainer === Modal.Footer || (buttonContainer?.type?.$$type === MODAL_FOOTER);
+    const usesBody: boolean = usesModalBody(container);
+    const usesFooter: boolean = usesModalFooter(buttonContainer);
 
-    return (usesModalBody || usesModalFooter);
+    return (usesBody || usesFooter);
 };
+
+const usesModalBody = (container: any): boolean => {
+    if (!container) return false;
+
+    if (container === Modal.Body || container?.type?.$$type === MODAL_BODY) return true;
+
+    if (typeof container === 'function') {
+        const funcStr: string = container.toString();
+        return funcStr.includes('Modal.Body') || funcStr.includes('ModalBody');
+    }
+
+    return false
+}
+
+const usesModalFooter = (container: any): boolean => {
+    if (!container) return false;
+
+    if (container === Modal.Footer || container?.type?.$$type === MODAL_FOOTER) return true;
+
+    if (typeof container === 'function') {
+        const funcStr: string = container.toString();
+        return funcStr.includes('Modal.Footer') || funcStr.includes('ModalFooter');
+    }
+
+    return false
+}

@@ -1,5 +1,11 @@
 # @sio-group/ui-modal
 
+## 0.4.7
+
+### Patch Changes
+
+- Fix: make modal work with ref form
+
 ## 0.4.6
 
 ### Patch Changes

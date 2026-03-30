@@ -12,10 +12,13 @@ import "@sio-group/ui-card/sio-card-style.css";
 import "@sio-group/ui-modal/sio-modal-style.css";
 import "@sio-group/ui-datatable/sio-datatable-style.css";
 import "@sio-group/ui-pagination/sio-pagination-style.css";
+import {Form} from "@sio-group/form-react";
+import {formBuilder} from "@sio-group/form-builder";
 
 function App<T extends { id: string | number }>() {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [isConfirmationOpen, setIsConfirmationOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+    const [isFormOpen, setIsFormOpen] = useState(false);
     const [count, setCount] = useState(0);
     const [pagination, setPagination] = useState({
         from: 1,
@@ -156,6 +159,19 @@ function App<T extends { id: string | number }>() {
                 >
                     <p>This is a card from @sio-group/ui-card</p>
                 </Card>
+
+                <Card>
+                    <Form
+                        fields={
+                            formBuilder()
+                                .addText('name', {label: "Name", required: true})
+                                .getFields()
+                        }
+                        submitAction={(values) => console.log(values)}
+                        container={Card.Body}
+                        buttonContainer={({children}) => <Card.Footer>{children}</Card.Footer>}
+                    />
+                </Card>
             </section>
 
             {/* UI Modal */}
@@ -167,6 +183,9 @@ function App<T extends { id: string | number }>() {
                     </Button>
                     <Button onClick={() => setIsConfirmationOpen(true)}>
                         Open Confirmation
+                    </Button>
+                    <Button onClick={() => setIsFormOpen(true)}>
+                        Open Form
                     </Button>
                 </div>
 
@@ -183,6 +202,22 @@ function App<T extends { id: string | number }>() {
                     ]}
                 >
                     <p>This is a modal from @sio-group/ui-modal</p>
+                </Modal>
+
+                <Modal
+                    show={isFormOpen}
+                    close={() => setIsFormOpen(false)}
+                >
+                    <Form
+                        fields={
+                            formBuilder()
+                                .addText('name', {label: "Name", required: true})
+                                .getFields()
+                        }
+                        submitAction={(values) => console.log(values)}
+                        container={Modal.Body}
+                        buttonContainer={({children}) => <Modal.Footer>{children}</Modal.Footer>}
+                    />
                 </Modal>
 
                 <Confirmation
