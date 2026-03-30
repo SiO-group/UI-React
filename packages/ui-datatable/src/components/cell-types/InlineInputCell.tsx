@@ -1,11 +1,13 @@
 import {useEffect, useState} from "react";
 import {Button} from "@sio-group/ui-core";
 import {InlineInputCellProps} from "../../types/data-table-props";
+import {renderValue} from "../../utils/render-value";
 
 export const InlineInputCell = <T extends { id: string | number }>({
     formField,
     item,
     value,
+    column,
     updateData,
 }: InlineInputCellProps<T>) => {
     const [showEdit, setShowEdit] = useState(false);
@@ -92,7 +94,7 @@ export const InlineInputCell = <T extends { id: string | number }>({
                 </form>
             ) : (
                 <>
-                    {value}
+                    {renderValue({value, column, item, formFields: [], updateData})}
                     <Button
                         variant="link"
                         onClick={() => setShowEdit(true)}

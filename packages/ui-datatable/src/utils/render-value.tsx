@@ -17,6 +17,7 @@ export const renderValue = <T extends { id: string | number }> ({value, column, 
             <InlineInputCell
                 value={value}
                 item={item}
+                column={column}
                 formField={formField}
                 updateData={updateData}
             />

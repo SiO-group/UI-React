@@ -48,5 +48,6 @@ export interface InlineInputCellProps<T extends { id: string | number }> {
     formField: FormField;
     item: T;
     value: T[keyof T];
+    column: Column<T>;
     updateData?: (id: string | number, values: Partial<T>) => void;
 }

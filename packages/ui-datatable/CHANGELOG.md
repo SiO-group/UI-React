@@ -1,5 +1,11 @@
 # @sio-group/ui-datatable
 
+## 0.1.11
+
+### Patch Changes
+
+- Fix: add column type to inline editable fields
+
 ## 0.1.10
 
 ### Patch Changes
