@@ -29,10 +29,12 @@ This separation gives you the flexibility to:
 | Package                                                  | Version                                                           | Description                                                  | Documentation                                |
 |----------------------------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------|----------------------------------------------|
 | [**@sio-group/ui-core**](./packages/ui-core)             | ![version](https://img.shields.io/npm/v/@sio-group/ui-core)       | Foundational UI primitives (Button, Link, Pill)              | [README](./packages/ui-core/README.md)       |
-| [**@sio-group/ui-modal**](./packages/ui-modal)           | ![version](https://img.shields.io/npm/v/@sio-group/ui-modal)      | Flexible modal component with Confirmation dialog            | [README](./packages/ui-modal/README.md)      |
 | [**@sio-group/ui-card**](./packages/ui-card)             | ![version](https://img.shields.io/npm/v/@sio-group/ui-card)       | Flexible and accessible card component                       | [README](./packages/ui-card/README.md)       |
-| [**@sio-group/ui-pagination**](./packages/ui-pagination) | ![version](https://img.shields.io/npm/v/@sio-group/ui-pagination) | Standalone pagination component with page window             | [README](./packages/ui-pagination/README.md) |
+| [**@sio-group/ui-charts**](./packages/ui-charts)         | ![version](https://img.shields.io/npm/v/@sio-group/ui-sharts)     | Flexible and accessible charts components                    | [README](./packages/ui-charts/README.md)     |
 | [**@sio-group/ui-datatable**](./packages/ui-datatable)   | ![version](https://img.shields.io/npm/v/@sio-group/ui-datatable)  | Full-featured datatable with client- and server-side support | [README](./packages/ui-datatable/README.md)  |
+| [**@sio-group/ui-modal**](./packages/ui-modal)           | ![version](https://img.shields.io/npm/v/@sio-group/ui-modal)      | Flexible modal component with Confirmation dialog            | [README](./packages/ui-modal/README.md)      |
+| [**@sio-group/ui-pagination**](./packages/ui-pagination) | ![version](https://img.shields.io/npm/v/@sio-group/ui-pagination) | Standalone pagination component with page window             | [README](./packages/ui-pagination/README.md) |
+| [**@sio-group/ui-widgets**](./packages/ui-widgets)       | ![version](https://img.shields.io/npm/v/@sio-group/ui-widgets)    | Flexible and accessible widget components                    | [README](./packages/ui-widgets/README.md)    |
 
 ## Quick Start
 
@@ -41,14 +43,23 @@ Choose your entry point based on your needs:
 ### 🚀 I want a complete UI solution
 
 ```bash
-npm install @sio-group/ui-core @sio-group/ui-modal @sio-group/ui-card @sio-group/ui-pagination @sio-group/ui-datatable
+npm install \
+  @sio-group/ui-core \
+  @sio-group/ui-card \
+  @sio-group/ui-widgets \
+  @sio-group/ui-charts \
+  @sio-group/ui-modal \
+  @sio-group/ui-pagination \
+  @sio-group/ui-datatable
 ```
 
 ```tsx
 import { Button } from '@sio-group/ui-core';
 import { Modal } from '@sio-group/ui-modal';
 import { Card } from '@sio-group/ui-card';
+import { BarChart } from '@sio-group/ui-charts';
 import { DataTable } from '@sio-group/ui-datatable';
+import { MetricCard } from '@sio-group/ui-cards';
 import { useState } from 'react';
 
 function App() {
@@ -56,12 +67,30 @@ function App() {
 
   return (
     <>
+      <MetricCard
+        title="Participation"
+        value="84%"
+        color="success"
+      />
+        
       <Button onClick={() => setOpen(true)}>
         Open Modal
       </Button>
 
       <Card title="Demo Card" addShadow>
-        <p>This is awesome content</p>
+        <LineChart
+          labels={["Mon", "Tue", "Wed", "Thu"]}
+          minValue={0}
+          maxValue={100}
+          series={[
+            {
+              label: "Participation",
+              values: [72, 81, 77, 84],
+              color: "info",
+              fill: true
+            }
+          ]}
+        />
       </Card>
 
       <Modal show={open} close={() => setOpen(false)} title="Welcome">
@@ -99,6 +128,84 @@ function MyComponent() {
       </Link>
       <Pill status="success" label="Actief" />
     </div>
+  );
+}
+```
+
+### 📊 Charts and analytics
+
+```bash
+npm install @sio-group/ui-charts
+```
+
+```tsx
+import {
+  BarChart,
+  DonutChart,
+  GaugeChart,
+  LineChart,
+  StackedBar,
+} from "@sio-group/ui-charts";
+
+function Analytics() {
+  return (
+    <>
+      <GaugeChart
+        title="Wellbeing"
+        value={74}
+        color="success"
+      />
+
+      <DonutChart
+        title="Status distribution"
+        slices={[
+          { label: "Positive", value: 62, color: "success" },
+          { label: "Neutral", value: 23, color: "warning" },
+          { label: "Negative", value: 15, color: "danger" },
+        ]}
+      />
+    </>
+  );
+}
+```
+
+### 🧩 Dashboard widgets
+
+```bash
+npm install @sio-group/ui-widgets
+```
+
+```tsx
+import {
+  StatCard,
+  MetricCard,
+  CompareCard,
+  BarCard,
+} from "@sio-group/ui-widgets";
+
+function Widgets() {
+  return (
+    <>
+      <StatCard
+        title="Users"
+        value={142}
+        color="info"
+      />
+
+      <MetricCard
+        title="Wellbeing"
+        value="7.8"
+        unit="/10"
+        color="success"
+      />
+
+      <BarCard
+        title="Completion"
+        value={84}
+        max={100}
+        color="success"
+      />
+    </>
   );
 }
 ```
@@ -162,22 +269,22 @@ import { DataTable } from '@sio-group/ui-datatable';
 ## Architecture
 
 ```
-           ┌─────────────────┐
-           │    ui-core      │
-           │  (primitives)   │
-           │ Button          │
-           │ Link            │
-           │ Pill            │
-           └────────┬────────┘
-                    │
-     ┌──────────────┼──────────────┐
-     ▼              ▼              ▼
-┌──────────┐  ┌──────────┐  ┌──────────────┐
-│ ui-modal │  │ ui-card  │  │ui-pagination │
-│          │  │          │  │              │
-│ Modal    │  │ Card     │  │ Pagination   │
-│ Confirm  │  │          │  │              │
-└──────────┘  └──────────┘  └──────┬───────┘
+                          ┌─────────────────┐
+                          │    ui-core      │
+                          │  (primitives)   │
+                          │ Button          │
+                          │ Link            │
+                          │ Pill            │
+                          └────────┬────────┘
+                                   │
+     ┌──────────────┬──────────────┼─────────────────┬─────────────┐
+     ▼              ▼              ▼                 ▼             ▼
+┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌───────────┐  ┌────────────┐
+│ ui-modal │  │ ui-card  │  │ui-pagination │  │ ui-charts │  │ ui-widgets │
+│          │  │          │  │              │  │           │  │            │
+│ Modal    │  │ Card     │  │ Pagination   │  │ Data      │  │ KPI Cards  │
+│ Confirm  │  │          │  │              │  │ Charts    │  │            │
+└──────────┘  └──────────┘  └──────┬───────┘  └───────────┘  └────────────┘
                                    │
                             ┌──────▼───────┐
                             │ ui-datatable │
@@ -191,6 +298,8 @@ import { DataTable } from '@sio-group/ui-datatable';
 - **@sio-group/ui-core** — no internal dependencies, foundational components
 - **@sio-group/ui-modal** — depends on `ui-core` for buttons and links
 - **@sio-group/ui-card** — depends on `ui-core` for buttons and links
+- **@sio-group/ui-widgets** — no internal dependencies
+- **@sio-group/ui-charts** — no internal dependencies
 - **@sio-group/ui-pagination** — no internal dependencies
 - **@sio-group/ui-datatable** — depends on `ui-core` and `ui-pagination`
 
@@ -213,6 +322,8 @@ import "@sio-group/ui-core/sio-core-style.css";
 import "@sio-group/ui-core/sio-button.css";
 import "@sio-group/ui-core/sio-link.css";
 import "@sio-group/ui-core/sio-pill.css";
+import "@sio-group/ui-widgets/sio-widgets-style.css";
+import "@sio-group/ui-charts/sio-charts-style.css";
 import "@sio-group/ui-modal/sio-modal-style.css";
 import "@sio-group/ui-card/sio-card-style.css";
 import "@sio-group/ui-pagination/sio-pagination-style.css";
@@ -254,10 +365,12 @@ npm run demo
 ui-react/
 ├── packages/
 │   ├── ui-core/         # Core UI primitives — Button, Link, Pill
-│   ├── ui-modal/        # Modal and Confirmation components
 │   ├── ui-card/         # Card component
+│   ├── ui-charts/       # Chart components
+│   ├── ui-modal/        # Modal and Confirmation components
 │   ├── ui-pagination/   # Pagination component
 │   ├── ui-datatable/    # DataTable component
+│   ├── ui-widgets/      # Widget components
 │   └── demo/            # Example application
 └── package.json         # Workspace root
 ```
