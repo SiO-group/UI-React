@@ -1,5 +1,9 @@
 # @sio-group/ui-charts
 
+![npm](https://img.shields.io/npm/v/@sio-group/ui-charts)
+![TypeScript](https://img.shields.io/badge/types-Yes-brightgreen)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+
 The charts package provides lightweight and composable data visualizations for dashboards, analytics interfaces and reporting tools.
 
 All charts are:
