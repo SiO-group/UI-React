@@ -1,0 +1,29 @@
+@use "../tokens/tokens" as *;
+
+:where(.sio-gauge__wrap) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+:where(.sio-gauge__center) {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+:where(.sio-gauge__value) {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--sio-color-gray);
+}
+
+:where(.sio-gauge__fill.success) { stroke: var(--sio-color-success); }
+:where(.sio-gauge__fill.caution) { stroke: var(--sio-color-caution); }
+:where(.sio-gauge__fill.warning) { stroke: var(--sio-color-warning); }
+:where(.sio-gauge__fill.error) { stroke: var(--sio-color-error); }
+:where(.sio-gauge__fill.info) { stroke: var(--sio-color-info); }
+:where(.sio-gauge__fill.default) { stroke: var(--sio-color-primary); }

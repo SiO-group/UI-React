@@ -6,14 +6,18 @@ import {Confirmation, Modal} from "@sio-group/ui-modal";
 import {Pagination} from "@sio-group/ui-pagination";
 import {DataTable} from "@sio-group/ui-datatable";
 import type {SortState} from "@sio-group/ui-datatable";
+import {Form} from "@sio-group/form-react";
+import {formBuilder} from "@sio-group/form-builder";
+import {BarCard, CompareCard, MetricCard, StatCard} from "@sio-group/ui-widgets";
 
 import "@sio-group/ui-core/sio-core-style.css";
 import "@sio-group/ui-card/sio-card-style.css";
 import "@sio-group/ui-modal/sio-modal-style.css";
 import "@sio-group/ui-datatable/sio-datatable-style.css";
 import "@sio-group/ui-pagination/sio-pagination-style.css";
-import {Form} from "@sio-group/form-react";
-import {formBuilder} from "@sio-group/form-builder";
+import "@sio-group/ui-widgets/sio-widgets-style.css";
+import "@sio-group/ui-charts/sio-charts-style.css";
+import {BarChart, DonutChart, GaugeChart, LineChart, StackedBar} from "@sio-group/ui-charts";
 
 function App<T extends { id: string | number }>() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -253,6 +257,114 @@ function App<T extends { id: string | number }>() {
                         currentPage: page,
                     }))}
                 />
+            </section>
+
+            {/* Widgets */}
+            <section style={{ marginBottom: '2rem' }}>
+                <h2>Widgets</h2>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <BarCard title="Widget title" value={26} max={100} label="Widget label" caption="Widget caption" />
+                    <BarCard title="Widget title" value={158} percentage={75} caption="Widget caption" color="success" />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <CompareCard title="Widget Title" items={[
+                        { label: "item 1", value: 12 },
+                        { label: "item 2", value: 18 },
+                        { label: "item 3", value: 7 },
+                    ]} showValues />
+                    <CompareCard title="Widget Title" items={[
+                        { label: "item 1", value: 12, percentage: 12, color: "success" },
+                        { label: "item 2", value: 18, percentage: 18, color: "warning" },
+                        { label: "item 3", value: 7, percentage: 7, color: '#000000' },
+                    ]} />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <MetricCard title="Widget title" value={25} unit="units" icon="I" />
+                    <MetricCard title="Widget title" value={25} stats={[
+                        {value: 18, label: "Item 1"},
+                        {value: 25, label: "Item 1"},
+                    ]} color="success" />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <StatCard title="Widget title" value={25} color="success" icon="I" trend={{ value: 15, direction: "up", label: "direction label"}} />
+                    <StatCard title="Widget title" value="39%" label="Widget label" />
+                </div>
+            </section>
+
+            {/* Charts */}
+            <section style={{ marginBottom: '2rem' }}>
+                <h2>Widgets</h2>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <BarChart labels={['group 1', 'group 2', 'group 3']} title="Chart title" showLegend showValues variant="grouped"
+                              series={[
+                                  { label: "label 1", values: [5, 8, 10], color: 'default' },
+                                  { label: "label 2", values: [3, 15, 7], color: 'warning' },
+                                  { label: "label 3", values: [3, 18, 2], color: '#000000' },
+                              ]} />
+                    <BarChart labels={['group 1', 'group 2', 'group 3']} title="Chart title" showValues variant="stacked"
+                              series={[
+                                  { label: "label 1", values: [5, 8, 10], color: 'success' },
+                                  { label: "label 2", values: [3, 15, 7], color: 'caution' },
+                                  { label: "label 3", values: [3, 18, 2], color: 'warning' },
+                              ]} />
+                    <BarChart labels={['group 1', 'group 2', 'group 3']} title="Chart title" showLegend showValues
+                              series={[{ label: "label 1", values: [5, 8, 10], color: 'info' }]}
+                    />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <DonutChart title="Chart title" centerLabel="Center label" radius={65} centerSublabel="center sublabel" thickness={25} showLegend slices={[
+                        { label: 'label 1', value: 38, color: 'success' },
+                        { label: 'label 2', value: 27, color: 'warning' },
+                        { label: 'label 3', value: 68, color: 'error' },
+                        { label: 'label 4', value: 10, color: '#000000' },
+                    ]} />
+                    <DonutChart title="Chart title" showLegend={false} slices={[
+                        { label: 'label 1', value: 38, color: 'success' },
+                        { label: 'label 2', value: 27, color: 'warning' },
+                        { label: 'label 3', value: 68, color: 'error' },
+                        { label: 'label 4', value: 10, color: '#000000' },
+                    ]} />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <GaugeChart value={75} max={150} min={15} title="Chart title" centerLabel="Center label" thickness={25} color="#000000" />
+                    <GaugeChart value={75} title="Chart title" unit="units" color="success" />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <LineChart title="Chart title" gridLines={5} minValue={0} maxValue={20} labels={['label 1', 'label 2', 'label 3', 'label 4']} series={[
+                        { label: "group 1", values: [5, 8, 10, 15], color: 'default' },
+                        { label: "group 2", values: [3, 15, 7, 9], color: 'warning' },
+                        { label: "group 3", values: [3, 18, 2, 8], color: '#000000' },
+                    ]} />
+                    <LineChart title="Chart title" labels={['label 1', 'label 2', 'label 3', 'label 4']} series={[
+                        { label: "group 1", values: [5, 8, 10, 15], color: 'warning' },
+                        { label: "group 2", values: [3, 15, 7, 9], color: 'caution' },
+                        { label: "group 3", values: [3, 18, 2, 8], color: 'success' },
+                    ]} />
+                    <LineChart title="Chart title" labels={['label 1', 'label 2', 'label 3', 'label 4']} series={[
+                        { label: "group 1", values: [5, 8, 10, 15], color: 'info', fill: true },
+                    ]} />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem", marginBottom: '1rem' }}>
+                    <StackedBar title="Chart title" height={10} showPercentages={false} segments={[
+                        {label: 'label 1', value: 18, color: 'success' },
+                        {label: 'label 2', value: 35, color: 'caution' },
+                        {label: 'label 3', value: 9, color: '#000000' },
+                    ]} />
+                    <StackedBar title="Chart title" showLegend={false} segments={[
+                        {label: 'label 1', value: 18, color: 'success' },
+                        {label: 'label 2', value: 35, color: 'caution' },
+                        {label: 'label 3', value: 9, color: '#000000' },
+                    ]} />
+                </div>
             </section>
 
             {/* UI Data Table */}

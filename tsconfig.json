@@ -6,6 +6,8 @@
     { "path": "./packages/ui-datatable"},
     { "path": "./packages/ui-pagination"},
     { "path": "./packages/ui-modal"},
+    { "path": "./packages/ui-charts"},
+    { "path": "./packages/ui-ui-widgets"},
     { "path": "./packages/demo"},
   ]
 }

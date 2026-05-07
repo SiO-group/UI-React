@@ -51,6 +51,7 @@ Import the core widget styles before using the components.
 ```javascript
 // All widget styling
 import "@sio-group/ui-widgets/sio-widget-style.css";
+
 // Individual component styles
 import "@sio-group/ui-widgets/sio-stat-card.css";
 import "@sio-group/ui-widgets/sio-metric-card.css";

@@ -1,0 +1,104 @@
+@use "../tokens/tokens" as *;
+
+:where(.sio-line-chart) {
+  position: relative;
+}
+
+:where(.sio-line-chart__tooltip) {
+  position: absolute;
+  top: 8px;
+  transform: translateX(-50%);
+  background: var(--sio-color-white);
+  border: 0.5px solid var(--sio-color-border);
+  border-radius: var(--sio-radius-md);
+  padding: 6px 10px;
+  font-size: 11px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: var(--sio-color-shadow) var(--sio-color-shadow-color);
+}
+
+:where(.sio-line-chart__tooltip-label) {
+  font-size: 10px;
+  color: var(--sio-color-gray);
+  margin-bottom: 4px;
+}
+
+:where(.sio-line-chart__tooltip-row) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--sio-color-black);
+}
+
+:where(.sio-line-chart__tooltip-row strong) {
+  color: var(--sio-color-gray);
+  font-weight: 500;
+  margin-left: auto;
+  padding-left: 8px;
+}
+
+:where(.sio-line-chart__tooltip-dot) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+:where(.sio-line-chart__legend) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 0.5rem;
+}
+
+:where(.sio-line-chart__legend-item) {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--sio-color-black);
+}
+
+:where(.sio-line-chart__legend-line) {
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+:where(.sio-line-line.success) { stroke: var(--sio-color-success); }
+:where(.sio-line-line.caution) { stroke: var(--sio-color-caution); }
+:where(.sio-line-line.warning) { stroke: var(--sio-color-warning); }
+:where(.sio-line-line.error) { stroke: var(--sio-color-error); }
+:where(.sio-line-line.info) { stroke: var(--sio-color-info); }
+:where(.sio-line-line.default) { stroke: var(--sio-color-primary); }
+
+:where(.sio-line-fill.success) { stop-color: var(--sio-color-success); }
+:where(.sio-line-fill.caution) { stop-color: var(--sio-color-caution); }
+:where(.sio-line-fill.warning) { stop-color: var(--sio-color-warning); }
+:where(.sio-line-fill.error) { stop-color: var(--sio-color-error); }
+:where(.sio-line-fill.info) { stop-color: var(--sio-color-info); }
+:where(.sio-line-fill.default) { stop-color: var(--sio-color-primary); }
+
+:where(.sio-line-dot.success) { fill: var(--sio-color-success); }
+:where(.sio-line-dot.caution) { fill: var(--sio-color-caution); }
+:where(.sio-line-dot.warning) { fill: var(--sio-color-warning); }
+:where(.sio-line-dot.error) { fill: var(--sio-color-error); }
+:where(.sio-line-dot.info) { fill: var(--sio-color-info); }
+:where(.sio-line-dot.default) { fill: var(--sio-color-primary); }
+
+:where(.sio-line-chart__tooltip-dot.success) { background: var(--sio-color-success); }
+:where(.sio-line-chart__tooltip-dot.caution) { background: var(--sio-color-caution); }
+:where(.sio-line-chart__tooltip-dot.warning) { background: var(--sio-color-warning); }
+:where(.sio-line-chart__tooltip-dot.error) { background: var(--sio-color-error); }
+:where(.sio-line-chart__tooltip-dot.info) { background: var(--sio-color-info); }
+:where(.sio-line-chart__tooltip-dot.default) { background: var(--sio-color-primary); }
+
+:where(.sio-line-chart__legend-line.success) { background: var(--sio-color-success); }
+:where(.sio-line-chart__legend-line.caution) { background: var(--sio-color-caution); }
+:where(.sio-line-chart__legend-line.warning) { background: var(--sio-color-warning); }
+:where(.sio-line-chart__legend-line.error) { background: var(--sio-color-error); }
+:where(.sio-line-chart__legend-line.info) { background: var(--sio-color-info); }
+:where(.sio-line-chart__legend-line.default) { background: var(--sio-color-primary); }
