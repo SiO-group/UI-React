@@ -1,0 +1,78 @@
+@use "../tokens/tokens" as *;
+
+:where(.sio-compare-card) {
+  background: var(--sio-color-white);
+  border: 0.5px solid var(--sio-color-border);
+  border-radius: var(--sio-border-radius);
+  padding: var(--sio-padding-y) var(--sio-padding-x);
+}
+
+:where(.sio-compare-card__title) {
+  font-size: 12px;
+  color: var(--sio-color-gray);
+  margin-bottom: 0.75rem;
+}
+
+:where(.sio-compare-card__rows) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where(.sio-compare-card__row) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+:where(.sio-compare-card__dot) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+:where(.sio-compare-card__dot.success) { background: var(--sio-color-success); }
+:where(.sio-compare-card__dot.caution) { background: var(--sio-color-caution); }
+:where(.sio-compare-card__dot.warning) { background: var(--sio-color-warning); }
+:where(.sio-compare-card__dot.danger) { background: var(--sio-color-danger); }
+:where(.sio-compare-card__dot.info) { background: var(--sio-color-info); }
+:where(.sio-compare-card__dot.default) { background: var(--sio-color-primary); }
+
+:where(.sio-compare-card__label) {
+  font-size: 12px;
+  color: var(--sio-color-gray);
+  flex: 0 0 64px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:where(.sio-compare-card__bar-track) {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--sio-color-light-gray);
+  overflow: hidden;
+}
+
+:where(.sio-compare-card__bar-fill) {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+:where(.sio-compare-card__bar-fill.success) { background: var(--sio-color-success) }
+:where(.sio-compare-card__bar-fill.caution) { background: var(--sio-color-caution) }
+:where(.sio-compare-card__bar-fill.warning) { background: var(--sio-color-warning) }
+:where(.sio-compare-card__bar-fill.danger) { background: var(--sio-color-danger) }
+:where(.sio-compare-card__bar-fill.info) { background: var(--sio-color-info) }
+:where(.sio-compare-card__bar-fill.default) { background: var(--sio-color-primary) }
+
+:where(.sio-compare-card__value) {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sio-color-black);
+  min-width: 28px;
+  text-align: right;
+}

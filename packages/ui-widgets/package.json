@@ -1,0 +1,44 @@
+{
+  "name": "@sio-group/ui-widgets",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "style": "./dist/sio-widgets-style.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./sio-widgets-style.css": "./dist/styles/index.css",
+    "./sio-bar-card.css": "./dist/styles/components/bar-card.css",
+    "./sio-compare-card.css": "./dist/styles/components/compare-card.css",
+    "./sio-metric-card.css": "./dist/styles/components/metric-card.css",
+    "./sio-stat-card.css": "./dist/styles/components/stat-card.css"
+  },
+  "scripts": {
+    "build": "npm run build:js && npm run build:css",
+    "build:css": "sass src/assets/scss:dist/styles dist",
+    "build:js": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "dependencies": {
+    "@sio-group/ui-core": "0.4.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4",
+    "sass": "^1.97.3",
+    "typescript": "^5",
+    "vite": "^5"
+  }
+}

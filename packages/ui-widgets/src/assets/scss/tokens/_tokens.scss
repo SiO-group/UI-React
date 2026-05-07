@@ -1,0 +1,28 @@
+:root {
+  --sio-color-white: #ffffff;
+  --sio-color-black: #000000;
+  --sio-color-gray: #655f5d;
+  --sio-color-light-gray: #c6c6c6;
+
+  --sio-color-primary: #3B82F6;
+  --sio-color-success: #10B981;
+  --sio-color-caution: #f5c60b;
+  --sio-color-warning: #F59E0B;
+  --sio-color-danger: #EF4444;
+  --sio-color-info: #06B6D4;
+
+  --sio-color-primary-bg: rgba(59, 130, 246, .3);
+  --sio-color-success-bg: rgba(16, 185, 129, .3);
+  --sio-color-caution-bg: rgba(145, 198, 11, .3);
+  --sio-color-warning-bg: rgba(245, 158, 11, .3);
+  --sio-color-danger-bg: rgba(239, 68, 68, .3);
+  --sio-color-info-bg: rgba(6, 182, 212, .3);
+
+  --sio-color-border: var(--sio-color-primary);
+  --sio-color-shadow: 0 4px 8px 0;
+  --sio-color-shadow-color: rgba(0,0,0, .2);
+
+  --sio-border-radius: 3px;
+  --sio-padding-x: 15px;
+  --sio-padding-y: 10px;
+}

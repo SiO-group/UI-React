@@ -1,0 +1,49 @@
+@use "../tokens/tokens" as *;
+
+:where(.sio-bar-card) {
+  background: var(--sio-color-white);
+  border: 0.5px solid var(--sio-color-border);
+  border-radius: var(--sio-border-radius);
+  padding: var(--sio-padding-y) var(--sio-padding-x);
+}
+
+:where(.sio-bar-card__title) {
+  font-size: 12px;
+  color: var(--sio-color-gray);
+  margin-bottom: 0.25rem;
+}
+
+:where(.sio-bar-card__value) {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--sio-color-black);
+  line-height: 1.2;
+}
+
+:where(.sio-bar-card__track) {
+  height: 6px;
+  background: var(--sio-color-light-gray);
+  border-radius: 3px;
+  margin: 0.625rem 0 0.375rem;
+  overflow: hidden;
+}
+
+:where(.sio-bar-card__fill) {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+:where(.sio-bar-card__fill.success) { background: var(--sio-color-success) }
+:where(.sio-bar-card__fill.caution) { background: var(--sio-color-caution) }
+:where(.sio-bar-card__fill.warning) { background: var(--sio-color-warning) }
+:where(.sio-bar-card__fill.danger) { background: var(--sio-color-danger) }
+:where(.sio-bar-card__fill.info) { background: var(--sio-color-info) }
+:where(.sio-bar-card__fill.default) { background: var(--sio-color-primary) }
+
+:where(.sio-bar-card__footer) {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--sio-color-gray);
+}
