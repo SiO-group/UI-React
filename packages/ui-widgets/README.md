@@ -83,17 +83,17 @@ type ColorToken =
     | 'default' 
     | 'success' 
     | 'warning' 
-    | 'danger' 
+    | 'error' 
     | 'primary';
 ```
 
-| Value   | Intent                      |
-|---------|-----------------------------|
-| default | 	Neutral appearance         |
-| primary | 	Main accent color          |
-| success | 	Positive or healthy state  |
-| warning | 	Potential issue or caution |
-| danger  | 	Critical or negative state |
+| Value      | Intent                      |
+|------------|-----------------------------|
+| `default`  | 	Neutral appearance         |
+| `primary`  | 	Main accent color          |
+| `success`  | 	Positive or healthy state  |
+| `warning`  | 	Potential issue or caution |
+| `error`    | 	Critical or negative state |
 
 Several components also support custom CSS color values.
 
@@ -231,7 +231,7 @@ import { CompareCard } from "@sio-group/ui-widgets";
     items={[
         { label: "Team A", value: 82, color: "success" },
         { label: "Team B", value: 61, color: "#f59e0b" },
-        { label: "Team C", value: 44, color: "danger" }
+        { label: "Team C", value: 44, color: "error" }
     ]}
 />
 ```

@@ -35,7 +35,7 @@
 :where(.sio-compare-card__dot.success) { background: var(--sio-color-success); }
 :where(.sio-compare-card__dot.caution) { background: var(--sio-color-caution); }
 :where(.sio-compare-card__dot.warning) { background: var(--sio-color-warning); }
-:where(.sio-compare-card__dot.danger) { background: var(--sio-color-danger); }
+:where(.sio-compare-card__dot.error) { background: var(--sio-color-error); }
 :where(.sio-compare-card__dot.info) { background: var(--sio-color-info); }
 :where(.sio-compare-card__dot.default) { background: var(--sio-color-primary); }
 
@@ -65,7 +65,7 @@
 :where(.sio-compare-card__bar-fill.success) { background: var(--sio-color-success) }
 :where(.sio-compare-card__bar-fill.caution) { background: var(--sio-color-caution) }
 :where(.sio-compare-card__bar-fill.warning) { background: var(--sio-color-warning) }
-:where(.sio-compare-card__bar-fill.danger) { background: var(--sio-color-danger) }
+:where(.sio-compare-card__bar-fill.error) { background: var(--sio-color-error) }
 :where(.sio-compare-card__bar-fill.info) { background: var(--sio-color-info) }
 :where(.sio-compare-card__bar-fill.default) { background: var(--sio-color-primary) }
 
