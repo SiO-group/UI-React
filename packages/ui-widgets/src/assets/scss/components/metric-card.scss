@@ -37,9 +37,9 @@
   background: var(--sio-color-warning-bg);
   color: var(--sio-color-warning);
 }
-.sio-metric-card__icon.danger {
-  background: var(--sio-color-danger-bg);
-  color: var(--sio-color-danger);
+.sio-metric-card__icon.error {
+  background: var(--sio-color-error-bg);
+  color: var(--sio-color-error);
 }
 .sio-metric-card__icon.info {
   background: var(--sio-color-info-bg);
@@ -71,7 +71,7 @@
 .sio-metric-card__value.success { color: var(--sio-color-success); }
 .sio-metric-card__value.caution { color: var(--sio-color-caution); }
 .sio-metric-card__value.warning { color: var(--sio-color-warning); }
-.sio-metric-card__value.danger { color: var(--sio-color-danger); }
+.sio-metric-card__value.error { color: var(--sio-color-error); }
 .sio-metric-card__value.info { color: var(--sio-color-info); }
 .sio-metric-card__value.default { color: var(--sio-color-primary); }
 

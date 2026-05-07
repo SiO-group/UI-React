@@ -25,6 +25,26 @@
   background: var(--sio-color-success-bg);
   color: var(--sio-color-success);
 }
+.sio-stat-card__icon.caution {
+  background: var(--sio-color-caution-bg);
+  color: var(--sio-color-caution);
+}
+.sio-stat-card__icon.warning {
+  background: var(--sio-color-warning-bg);
+  color: var(--sio-color-warning);
+}
+.sio-stat-card__icon.error {
+  background: var(--sio-color-error-bg);
+  color: var(--sio-color-error);
+}
+.sio-stat-card__icon.info {
+  background: var(--sio-color-info-bg);
+  color: var(--sio-color-info);
+}
+.sio-stat-card__icon.default {
+  background: var(--sio-color-primary-bg);
+  color: var(--sio-color-primary);
+}
 
 .sio-stat-card__title {
   font-size: 12px;
@@ -67,5 +87,25 @@
 .sio-stat-card__trend.success {
   background: var(--sio-color-success-bg);
   color: var(--sio-color-success);
+}
+.sio-stat-card__trend.caution {
+  background: var(--sio-color-caution-bg);
+  color: var(--sio-color-caution);
+}
+.sio-stat-card__trend.warning {
+  background: var(--sio-color-warning-bg);
+  color: var(--sio-color-warning);
+}
+.sio-stat-card__trend.error {
+  background: var(--sio-color-error-bg);
+  color: var(--sio-color-error);
+}
+.sio-stat-card__trend.info {
+  background: var(--sio-color-info-bg);
+  color: var(--sio-color-info);
+}
+.sio-stat-card__trend.default {
+  background: var(--sio-color-primary-bg);
+  color: var(--sio-color-primary);
 }
 

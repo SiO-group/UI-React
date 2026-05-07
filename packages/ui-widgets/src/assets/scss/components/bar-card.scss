@@ -37,7 +37,7 @@
 :where(.sio-bar-card__fill.success) { background: var(--sio-color-success) }
 :where(.sio-bar-card__fill.caution) { background: var(--sio-color-caution) }
 :where(.sio-bar-card__fill.warning) { background: var(--sio-color-warning) }
-:where(.sio-bar-card__fill.danger) { background: var(--sio-color-danger) }
+:where(.sio-bar-card__fill.error) { background: var(--sio-color-error) }
 :where(.sio-bar-card__fill.info) { background: var(--sio-color-info) }
 :where(.sio-bar-card__fill.default) { background: var(--sio-color-primary) }
 
