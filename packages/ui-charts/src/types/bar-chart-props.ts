@@ -1,6 +1,21 @@
 import {ColorValue} from "./color-token";
 
 /**
+ * Represents a single data point within a series.
+ */
+export interface BarDataPoint {
+    value: number;
+    isCritical?: boolean;
+    extraInfo?: string | null;
+}
+
+export interface NormalizedBarSeries {
+    label: string;
+    color: ColorValue;
+    points: BarDataPoint[];
+}
+
+/**
  * Represents a single data series within a BarChart.
  */
 export interface BarSeries {
@@ -13,7 +28,7 @@ export interface BarSeries {
      *
      * The index of each value corresponds to the matching index in `labels`.
      */
-    values: number[];
+    values: number[] | BarDataPoint[];
 }
 
 /**
