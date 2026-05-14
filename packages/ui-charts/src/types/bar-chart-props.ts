@@ -50,6 +50,12 @@ export interface BarChartProps {
     series: BarSeries[];
 
     /**
+     * Optional fixed maximum Y-axis value.
+     * Defaults to the highest value found in the dataset.
+     */
+    maxValue?: number;
+
+    /**
      * Layout variant of the chart.
      *
      * - `simple`: single-series vertical bars

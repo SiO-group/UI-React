@@ -116,16 +116,17 @@ import { BarChart } from "@sio-group/ui-widgets";
 
 ### BarChart API
 
-| Prop       | Type                                      | Default | Description            |
-|------------|-------------------------------------------|---------|------------------------|
-| title      | `string`                                  | —       | Optional chart title   |
-| labels     | `string[]`                                | —       | X-axis labels          |
-| series     | `BarSeries[]`                             | —       | Data series            |
-| variant    | `"simple"` \| `"grouped"` \| `"stacked"`  | auto    | Chart variant          |
-| height     | `number`                                  | 140     | Chart height in px     |
-| showValues | `boolean`                                 | false   | Displays values        |
-| showLegend | `boolean`                                 | true    | Displays legend        |
-| className  | `string`                                  | —       | Additional CSS classes |
+| Prop       | Type                                     | Default | Description            |
+|------------|------------------------------------------|---------|------------------------|
+| title      | `string`                                 | —       | Optional chart title   |
+| labels     | `string[]`                               | —       | X-axis labels          |
+| series     | `BarSeries[]`                            | —       | Data series            |
+| maxValue   | `number`                                 | auto    | Fixed maximum Y-axis   |
+| variant    | `"simple"` \| `"grouped"` \| `"stacked"` | auto    | Chart variant          |
+| height     | `number`                                 | 140     | Chart height in px     |
+| showValues | `boolean`                                | false   | Displays values        |
+| showLegend | `boolean`                                | true    | Displays legend        |
+| className  | `string`                                 | —       | Additional CSS classes |
 
 ---
 

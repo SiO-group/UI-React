@@ -9,6 +9,7 @@ export const BarChart: FC<BarChartProps> = ({
     series,
     variant = series.length === 1 ? 'simple' : 'grouped',
     height = 140,
+    maxValue,
     showValues = false,
     showLegend = true,
     className = '',
@@ -24,13 +25,14 @@ export const BarChart: FC<BarChartProps> = ({
         , [series]);
 
     const maxVal: number = useMemo(() => {
+        if (maxValue) return maxValue;
         if (variant === 'stacked') {
             return Math.max(...labels.map((_, ci) =>
                 normalizedSeries.reduce((s, sr) => s + (sr.points[ci]?.value ?? 0), 0)
             ));
         }
         return Math.max(...normalizedSeries.flatMap(sr => sr.points.map(p => p.value)));
-    }, [normalizedSeries, labels, variant]);
+    }, [normalizedSeries, labels, variant, maxValue]);
 
     const barHeight = (v: number) => Math.round((v / maxVal) * (height - 16));
 
