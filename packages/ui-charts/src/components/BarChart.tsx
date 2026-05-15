@@ -3,6 +3,8 @@ import {isColorToken} from "../utils/is-color-token";
 import {BarChartProps, BarSeries, ColorToken, ColorValue} from "../types";
 import {BarDataPoint, NormalizedBarSeries} from "../types/bar-chart-props";
 
+const MIN_BAR_FOR_OVERLAY = 18;
+
 export const BarChart: FC<BarChartProps> = ({
     title,
     labels,
@@ -81,12 +83,19 @@ export const BarChart: FC<BarChartProps> = ({
                                     {normalizedSeries.map((sr: NormalizedBarSeries, si: number) => {
                                         const point: BarDataPoint = sr.points[ci];
                                         const isToken: boolean = isColorToken(sr.color);
+                                        const isTooShort: boolean = barHeight(point.value) < MIN_BAR_FOR_OVERLAY;
 
                                         const colorClass: ColorToken | string = isToken || !sr.color ? (sr.color ?? 'default') : '';
                                         const colorStyle: { background: ColorValue } | undefined = (!isToken && sr.color) ? { background: sr.color } : undefined;
 
                                         return (
-                                            <>
+                                            <div key={si} className={`sio-bar-chart__bar-wrap${point.isCritical ? ' critical' : ''}`}>
+                                                {point.isCritical && (
+                                                    <div className={`sio-bar-chart__critical${isTooShort ? ' is-short' : ''}`} title="Kritiek signaal">
+                                                        ⚠
+                                                    </div>
+                                                )}
+
                                                 <div
                                                     key={si}
                                                     className={`sio-bar-chart__bar ${colorClass}`}
@@ -94,18 +103,12 @@ export const BarChart: FC<BarChartProps> = ({
                                                     title={`${sr.label}: ${point.value}`}
                                                 />
 
-                                                {point.isCritical && (
-                                                    <div className="sio-bar-chart__critical" title="Kritiek signaal">
-                                                        ⚠
-                                                    </div>
-                                                )}
-
                                                 {point.extraInfo && (
-                                                    <div className="sio-bar-chart__referral" title={point.extraInfo}>
-                                                        I
+                                                    <div className={`sio-bar-chart__extra-info${isTooShort ? ' is-short' : ''}`} title={point.extraInfo}>
+                                                        i
                                                     </div>
                                                 )}
-                                            </>
+                                            </div>
                                         );
                                     })}
                                 </div>
@@ -117,6 +120,7 @@ export const BarChart: FC<BarChartProps> = ({
                     // simple
                     const point: BarDataPoint = normalizedSeries[0]?.points[ci] ?? 0;
                     const isToken: boolean = isColorToken(series[0]?.color);
+                    const isTooShort: boolean = barHeight(point.value) < MIN_BAR_FOR_OVERLAY;
 
                     const colorClass: ColorToken | string = isToken || !series[0]?.color ? (series[0]?.color ?? 'default') : '';
                     const colorStyle: { background: ColorValue } | undefined = (!isToken && series[0]?.color) ? { background: series[0]?.color } : undefined;
@@ -124,23 +128,25 @@ export const BarChart: FC<BarChartProps> = ({
                         <div key={ci} className="sio-bar-chart__col">
                             {showValues && <span className="sio-bar-chart__val">{point.value}</span>}
                             <div className="sio-bar-chart__group">
-                                <div
-                                    className={`sio-bar-chart__bar sio-bar-chart__bar--simple ${colorClass}`}
-                                    style={{ height: barHeight(point.value), ...(colorStyle ?? {}) }}
-                                    title={`${lbl}: ${point.value}`}
-                                />
+                                <div className={`sio-bar-chart__bar-wrap${showValues ? ' has-value' : ''}${point.isCritical ? ' critical' : ''}`}>
+                                    {point.isCritical && (
+                                        <div className={`sio-bar-chart__critical ${isTooShort ? ' is-short' : ''}`} title="Kritiek signaal">
+                                            ⚠
+                                        </div>
+                                    )}
 
-                                {point.isCritical && (
-                                    <div className="sio-bar-chart__critical" title="Kritiek signaal">
-                                        ⚠
-                                    </div>
-                                )}
+                                    <div
+                                        className={`sio-bar-chart__bar sio-bar-chart__bar--simple ${colorClass}`}
+                                        style={{ height: barHeight(point.value), ...(colorStyle ?? {}) }}
+                                        title={`${lbl}: ${point.value}`}
+                                    />
 
                                 {point.extraInfo && (
-                                    <div className="sio-bar-chart__referral" title={point.extraInfo}>
-                                        I
+                                    <div className={`sio-bar-chart__extra-info${isTooShort ? ' is-short' : ''}`} title={point.extraInfo}>
+                                        i
                                     </div>
                                 )}
+                                </div>
                             </div>
                             <span className="sio-bar-chart__lbl">{lbl}</span>
                         </div>

@@ -316,7 +316,7 @@ function App<T extends { id: string | number }>() {
                               series={[{ label: "label 1", values: [5, 8, 10], color: 'info' }]}
                     />
                     <BarChart labels={['group 1', 'group 2', 'group 3']} title="Chart title" showLegend showValues maxValue={15}
-                              series={[{ label: "label 1", values: [{value: 5}, {value: 8, isCritical: true, extraInfo: 'Lorem'}, {value: 10}], color: 'info' }]}
+                              series={[{ label: "label 1", values: [{value: 5}, {value: 3, isCritical: true, extraInfo: 'Lorem'}, {value: 10}], color: 'info' }]}
                     />
                 </div>
 

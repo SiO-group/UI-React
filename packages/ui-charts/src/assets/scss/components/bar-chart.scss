@@ -109,3 +109,54 @@
 :where(.sio-bar-chart__legend-dot.error) { background: var(--sio-color-error) }
 :where(.sio-bar-chart__legend-dot.info) { background: var(--sio-color-info) }
 :where(.sio-bar-chart__legend-dot.default) { background: var(--sio-color-primary) }
+
+
+
+
+
+
+:where(.sio-bar-chart__bar-wrap) {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+:where(.sio-bar-chart__critical),
+:where(.sio-bar-chart__extra-info) {
+  position: absolute;
+  line-height: 1;
+}
+
+:where(.sio-bar-chart__critical) {
+  bottom: calc(100% + 2px);
+  font-size: 11px;
+  color: var(--sio-color-error);
+}
+
+
+
+:where(.sio-bar-chart__extra-info) {
+  color: var(--sio-color-white);
+  opacity: 0.85;
+  bottom: 4px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.sio-bar-chart__extra-info.is-short {
+  color: var(--sio-color-info);
+  bottom: calc(100% + 2px);
+  opacity: 1;
+}
+
+.sio-bar-chart__bar-wrap.has-value .sio-bar-chart__critical {
+  right: 5px;
+}
+
+.sio-bar-chart__bar-wrap.has-value .sio-bar-chart__extra-info.is-short,
+.sio-bar-chart__bar-wrap.critical .sio-bar-chart__extra-info.is-short {
+  left: 5px;
+}
+
+
